@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" class="root-text-sm">
+
+<!-- Mirrored from sim.rembangkab.go.id/portal/home/web by HTTrack Website Copier/3.x [XR&CO'2017], Wed, 14 Dec 2022 19:06:23 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+  <meta charset="utf-8">
+  <title>SIM Rembang</title>
+  <meta name="description" content="SIM Rembang">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+  <!-- Call App Mode on ios devices -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- Remove Tap Highlight on Windows Phone IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  <!-- base css -->
+  <link rel="stylesheet" media="screen, print" href="../assets/css/vendors.bundle.css">
+  <link rel="stylesheet" media="screen, print" href="../assets/css/app.bundle.css">
+  <link rel="stylesheet" media="screen, print" href="../assets/css/datagrid/datatables/datatables.bundle.css">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo.png">
+  <link rel="mask-icon" href="../assets/img/logo.png" color="#5bbad5">
+  <meta name="hostname" content="../index.html">
+  <meta name="app-url" content="../index.html">
+  <meta name="assets-url" content="../assets/index.html">
+  <meta name="environment" content="">
+  <meta name="author" content="Moh Rifqi Azizi | Muntahar | Pemkab Rembang">
+  <!-- Optional: page related CSS -->
+  <!-- PHP docs -->
+  <link rel="stylesheet" media="screen, print" href="../assets/css/markdown.css">
+  <!--  -->
+</head>
+
+<body class="mod-bg-3">
+  <!-- DOC: script to save and load page settings -->
+  <script>
+    /**
+     *	This script should be placed right after the body tag for fast execution
+     *	Note: the script is written in pure javascript and does not depend on thirdparty library
+     **/
+    'use strict';
+
+    var classHolder = document.getElementsByTagName("BODY")[0],
+      /**
+       * Load from localstorage
+       **/
+      themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) : {},
+      themeURL = themeSettings.themeURL || '',
+      themeOptions = themeSettings.themeOptions || '';
+    /**
+     * Load theme options
+     **/
+    if (themeSettings.themeOptions) {
+      classHolder.className = themeSettings.themeOptions;
+    } 
+    if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+      var cssfile = document.createElement('link');
+      cssfile.id = 'mytheme';
+      cssfile.rel = 'stylesheet';
+      cssfile.href = themeURL;
+      document.getElementsByTagName('head')[0].appendChild(cssfile);
+    }
+    /**
+     * Save to localstorage
+     **/
+    var saveSettings = function() {
+      themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item) {
+        return /^(nav|header|mod|display)-/i.test(item);
+      }).join(' ');
+      if (document.getElementById('mytheme')) {
+        themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+      };
+      localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+    }
+    /**
+     * Reset settings
+     **/
+    var resetSettings = function() {
+      localStorage.setItem("themeSettings", "");
+    }
+  </script>
+  <!-- BEGIN Page Wrapper -->
+  <div class="page-wrapper">
+    <div class="page-inner">
+      <!-- BEGIN Left Aside -->
+      <aside class="page-sidebar list-filter-active">
+        <div class="page-logo">
+          <a href="web.html" class="page-logo-link press-scale-down d-flex align-items-center position-relative">
+            <img src="logo2.png" style="width:40px!important;" alt="SIM Rembang" aria-roledescription="logo">
+            <span class="page-logo-text mr-1">E-LERNING <br> SMKIFSU</span>
+            <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+          </a>
+        </div>
+        <!-- BEGIN PRIMARY NAVIGATION -->
+        <nav id="js-primary-nav" class="primary-nav" role="navigation">
+          <div class="nav-filter">
+            <div class="position-relative">
+              <input type="text" id="nav_filter_input" placeholder="Cari Menu" class="form-control" tabindex="0">
+            </div>
+          </div>
+          <ul id="js-nav-menu" class="nav-menu">
+            <li>
+              <a href="web.html" title="Aplikasi Web" data-filter-tags="aplikasiweb" class=" waves-effect waves-themed" aria-expanded="false">
+                <i class="fal fa-home"></i>
+                <span class="nav-link-text" data-i18n="nav.aplikasiweb">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="mobile.html" title="Aplikasi Mobile" data-filter-tags="tugas" class=" waves-effect waves-themed" aria-expanded="false">
+                <i class="fal fa-mobile-android"></i>
+                <span class="nav-link-text">Tugas Saya</span>
+              </a>
+            </li>
+            <li>
+              <a href="web-instansi.html" title="Web Instansi" data-filter-tags="webinstansi" class=" waves-effect waves-themed" aria-expanded="false">
+                <i class="fal fa-building"></i>
+                <span class="nav-link-text" data-i18n="nav.webinstansi">Web Instansi</span>
+              </a>
+            </li>
+            <li>
+              <a href="web-desa.html" title="Web Desa" data-filter-tags="webdesa" class=" waves-effect waves-themed" aria-expanded="false">
+                <i class="fal fa-warehouse-alt"></i>
+                <span class="nav-link-text" data-i18n="nav.webdesa">Web Desa</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="DINKOMINFO" data-filter-tags="bank-data">
+                <i class="fal fa-globe"></i>
+                <span class="nav-link-text"">BANK DATA</span>
+              </a>
+              <ul>
+                <li>
+                  <a href="" title="Lokasi BTS" data-filter-tags="data siswa">
+                    <span class="nav-link-text">Data Siswa</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="" title="Fiber Optik" data-filter-tags="data guru">
+                    <span class="nav-link-text" >Data Guru</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="filter-message js-filter-message bg-warning-600"></div>
+        </nav>
+        <!-- END PRIMARY NAVIGATION -->
+      </aside>
+      <!-- END Left Aside -->
+
+      <div class="page-content-wrapper">
+        <!-- BEGIN Page Header -->
+        <header class="page-header" role="banner">
+          <!-- we need this logo when user switches to nav-function-top -->
+          <div class="page-logo">
+            <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
+              <img style="width:40px;" src="logo.png" alt="SIM Rembang" aria-roledescription="logo">
+              <span class="page-logo-text mr-1">SIM Rembang</span>
+              <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
+              <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+            </a>
+          </div>
+          <!-- DOC: nav menu layout change shortcut -->
+          <div class="hidden-md-down dropdown-icon-menu position-relative">
+            <a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Hide Navigation">
+              <i class="ni ni-menu"></i>
+            </a>
+            <ul>
+              <li>
+                <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minify Navigation">
+                  <i class="ni ni-minify-nav"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed" title="Lock Navigation">
+                  <i class="ni ni-lock-nav"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- DOC: mobile button appears during mobile width -->
+          <div class="hidden-lg-up">
+            <a href="#" class="header-btn btn press-scale-down" data-action="toggle" data-class="mobile-nav-on">
+              <i class="ni ni-menu"></i>
+            </a>
+          </div>
+
+          <div class="ml-auto d-flex">
+            <!-- activate app search icon (mobile) -->
+            <div class="hidden-sm-up">
+              <a href="#" class="header-icon" data-action="toggle" data-class="mobile-search-on" data-focus="search-field" title="Search">
+                <i class="fal fa-search"></i>
+              </a>
+            </div>
+            <!-- app settings -->
+            <div class="hidden-md-down">
+              <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
+                <i class="fal fa-cog"></i>
+              </a>
+            </div>
+            <!-- app shortcuts -->
+            <div>
+                <a href="#" class="header-icon">
+                  <i class="fal fa-globe"></i>
+                </a>
+              </div>
+            <div>
+              <a href="#" class="header-icon" data-toggle="dropdown" title="My Apps">
+                <i class="fal fa-cube"></i>
+              </a>
+              
+              <div class="dropdown-menu dropdown-menu-animated w-auto h-auto">
+                <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top">
+                  <h4 class="m-0 text-center color-white">
+                    Quick Shortcut web <small class="mb-0 opacity-80">User Applications & Addons</small>
+                  </h4>
+                </div>
+                <div class="custom-scroll h-100">
+                  <div class="app-list">
+                    <li>
+                      <a href="../../../external.html?link=http://data.rembangkab.go.id/" class="app-list-item hover-white">
+                        <span class="icon-stack">
+                          <i class="base-5 icon-stack-3x color-primary-600"></i>
+                          <i class="base-7 icon-stack-2x color-primary-700"></i>
+                          <i class="fal fal fa-database icon-stack-1x text-white fs-lg"></i>
+                        </span>
+                        <span class="app-list-name">
+                          Open Data </span>
+                      </a>
+                    </li>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- app message -->
+
+            <!-- app user menu -->
+            <div>
+              <a href="#" data-toggle="dropdown" title="Pemkab Rembang" class="header-icon d-flex align-items-center justify-content-center ml-2">
+                <img src="logo2.png" class="profile-image rounded-circle" alt="Pemkab Rembang">
+              </a>
+              <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+                <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+                  <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                    <span class="mr-2">
+                      <img src="logo2.png" class="rounded-circle profile-image" alt="Pemkab Rembang">
+                    </span>
+                    <div class="info-card-text">
+                      <div class="fs-lg text-truncate text-truncate-lg">Dadan Hidayat</div>
+                      <span>Administrator</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown-divider m-0"></div>
+                <a href="#" class="dropdown-item" data-action="app-reset">
+                  <span data-i18n="drpdwn.reset_layout">Reset Layout</span>
+                </a>
+                <a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
+                  <span data-i18n="drpdwn.settings">Settings</span>
+                </a>
+                <div class="dropdown-divider m-0"></div>
+                <a href="#" class="dropdown-item" data-action="app-fullscreen">
+                  <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+                  <i class="float-right text-muted fw-n">F11</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- END Page Header -->
+
+        <!-- BEGIN Page Content -->
+        <!-- the #js-page-content id is needed for some plugins to initialize -->
+        <main id="js-page-content" role="main" class="page-content">
+
+          <div class="row">
+
+            <div class="col-md-12 col-xl-12">
+              <!--Basic alerts-->
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 pt-2">
+                  <div class="card mb-2 bg-danger-800">
+                    <div class="card-body">
+                      <a href="../../../external.html?link=https://kms.rembangkab.go.id/" class="d-flex flex-row align-items-center" target="_blank" style="text-decoration: none !important;">
+                        <div class="icon-stack display-3 flex-shrink-0">
+                          <i class="fal fa-circle icon-stack-3x opacity-100 color-white"></i>
+                          <i class="fal fal fa-clipboard-list icon-stack-1x opacity-100 color-white"></i>
+                        </div>
+                        <div class="ml-3 color-white">
+                          <strong>
+                            Tugas Saya
+                          </strong>
+                          <br>
+                          4
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 pt-2">
+                  <div class="card mb-2 bg-success-800">
+                    <div class="card-body">
+                      <a href="../../../external.html?link=https://kms.rembangkab.go.id/" class="d-flex flex-row align-items-center" target="_blank" style="text-decoration: none !important;">
+                        <div class="icon-stack display-3 flex-shrink-0">
+                          <i class="fal fa-circle icon-stack-3x opacity-100 color-white"></i>
+                          <i class="fal fal fa-clipboard-list icon-stack-1x opacity-100 color-white"></i>
+                        </div>
+                        <div class="ml-3 color-white">
+                          <strong>
+                            Mapel Saya </strong>
+                          <br>
+                          10
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 pt-2">
+                  <div class="card mb-2 bg-warning-800">
+                    <div class="card-body">
+                      <a href="../../../external.html?link=https://kms.rembangkab.go.id/" class="d-flex flex-row align-items-center" target="_blank" style="text-decoration: none !important;">
+                        <div class="icon-stack display-3 flex-shrink-0">
+                          <i class="fal fa-circle icon-stack-3x opacity-100 color-white"></i>
+                          <i class="fal fal fa-clipboard-list icon-stack-1x opacity-100 color-white"></i>
+                        </div>
+                        <div class="ml-3 color-white">
+                          <strong>
+                            KMS </strong>
+                          <br>
+                          Knowledge Management System
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 pt-2">
+                  <div class="card mb-2 bg-info-800">
+                    <div class="card-body">
+                      <a href="../../../external.html?link=https://kms.rembangkab.go.id/" class="d-flex flex-row align-items-center" target="_blank" style="text-decoration: none !important;">
+                        <div class="icon-stack display-3 flex-shrink-0">
+                          <i class="fal fa-circle icon-stack-3x opacity-100 color-white"></i>
+                          <i class="fal fal fa-clipboard-list icon-stack-1x opacity-100 color-white"></i>
+                        </div>
+                        <div class="ml-3 color-white">
+                          <strong>
+                            KMS </strong>
+                          <br>
+                          Knowledge Management System
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <!-- panel start -->
+                  <div id="panel-1" class="panel">
+                    <div class="panel-hdr">
+                      <h2> STATISTIK PENGUNA</h2>
+                      <div class="panel-toolbar">
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                      </div>
+                    </div>
+                    <div class="panel-container show">
+                      <div class="panel-content">
+                        <div id="view">
+                          <b>Card disini</b>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- e:panel -->
+                </div>
+
+                <div class="col-md-6">
+                  <!-- panel start -->
+                  <div id="panel-1" class="panel">
+                    <div class="panel-hdr">
+                      <h2> STATISTIK PENGUNA</h2>
+                      <div class="panel-toolbar">
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                        <button class="btn btn-panel waves-effect waves-themed" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                      </div>
+                    </div>
+                    <div class="panel-container show">
+                      <div class="panel-content">
+                        <div id="view">
+                          <span> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus autem nulla, eos repellat cum laboriosam optio eveniet consequatur, vel inventore pariatur omnis sed, vitae at modi, laudantium fuga praesentium aliquid. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsa minima iusto deserunt cupiditate quidem aut laborum illo iste officia esse fuga voluptate aperiam corporis, at. Itaque rerum impedit rem!
+                            Accusamus, fugiat. Sequi iste, ab, corporis ipsa incidunt cum dignissimos! Doloremque officia tempora quae minima soluta aliquam qui, ipsa nemo nisi aspernatur corrupti possimus eum doloribus explicabo? Qui nam, illum.
+                            Harum exercitationem id accusamus aspernatur eveniet temporibus mollitia, obcaecati vel iste officia, perferendis quae ad possimus vero dicta amet sint quidem sunt illo et repellat cupiditate! Quae earum, aliquid nam.
+                            Eius velit animi voluptatum assumenda, nobis quisquam repellendus sit magnam? Iusto optio dolores eveniet dicta mollitia expedita omnis, doloribus ab, necessitatibus aperiam! Cupiditate, cum quam fugiat ipsam officiis quas asperiores?
+                            Quo, qui nobis molestias quam voluptate sint optio enim culpa tempore ipsa reiciendis, doloremque reprehenderit omnis velit, non ipsum beatae eveniet officiis nam magni consequuntur! Culpa dicta ratione reiciendis quasi.....</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- e:panel -->
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- END Page Content -->
+        <!-- this overlay is activated only when mobile menu is triggered -->
+        <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
+        <!-- BEGIN Page Footer -->
+        <footer class="page-footer" role="contentinfo">
+          <div class="d-flex align-items-center flex-1 text-muted">
+            <span class="hidden-md-down fw-700">2022 © Elearning &nbsp; - dadan hidayat</span>
+          </div>
+          <div>
+            <ul class="list-table m-0">
+              <li><a href="web.html" class="text-secondary fw-700">Dashboard</a></li>&nbsp;
+              <li><a href="web.html" class="text-secondary fw-700">Bantuan</a></li>&nbsp;
+              <li><a href="web.html" class="text-secondary fw-700">Term Of Sevice</a></li>&nbsp;
+            </ul>
+          </div>
+        </footer>
+        <!-- END Page Footer -->
+        <!-- BEGIN Shortcuts -->
+      </div>
+    </div>
+  </div>
+  <!-- END Page Wrapper -->
+  <!-- BEGIN Quick Menu -->
+  <!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
+  <nav class="shortcut-menu d-none d-sm-block">
+    <input type="checkbox" class="menu-open" name="menu-open" id="menu_open" />
+    <label for="menu_open" class="menu-open-button ">
+      <span class="app-shortcut-icon d-block"></span>
+    </label>
+    <a href="#" class="menu-item btn" data-toggle="tooltip" data-placement="left" title="Scroll Top">
+      <i class="fal fa-arrow-up"></i>
+    </a>
+    <a href="#" class="menu-item btn" data-action="app-fullscreen" data-toggle="tooltip" data-placement="left" title="Full Screen">
+      <i class="fal fa-expand"></i>
+    </a>
+  </nav>
+  <!-- END Quick Menu -->
+  <!-- BEGIN Page Settings -->
+  <div class="modal fade js-modal-settings modal-backdrop-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-right modal-md">
+      <div class="modal-content">
+        <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center w-100">
+          <h4 class="m-0 text-center color-white">
+            Pengaturan Layout
+            <small class="mb-0 opacity-80">Mengatur antarmuka halaman</small>
+          </h4>
+          <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+          </button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="settings-panel">
+            <div class="mt-4 d-table w-100 px-5">
+              <div class="d-table-cell align-middle">
+                <h1 class="p-0">
+                  App Layout
+                </h1>
+              </div>
+            </div>
+            <br>
+            <div class="list" id="fh">
+              <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="header-function-fixed"></a>
+              <span class="onoffswitch-title">Fixed Header</span>
+              <span class="onoffswitch-title-desc">header is in a fixed at all times</span>
+            </div>
+            <div class="list" id="nft">
+              <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-top"></a>
+              <span class="onoffswitch-title">Top Navigation</span>
+              <span class="onoffswitch-title-desc">Relocate left pane to top</span>
+            </div>
+            <hr class="mb-0 mt-4">
+
+          </div>
+          <span id="saving"></span>
+        </div>
+      </div>
+    </div>
+  </div> <!-- END Page Settings -->
+  <!-- Isi Script GOOGLE ANALYTICS -->
+  <!-- base vendor bundle: 
+             DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations 
+                        + pace.js (recommended)
+                        + jquery.js (core)
+                        + jquery-ui-cust.js (core)
+                        + popper.js (core)
+                        + bootstrap.js (core)
+                        + slimscroll.js (extension)
+                        + app.navigation.js (core)
+                        + ba-throttle-debounce.js (core)
+                        + waves.js (extension)
+                        + smartpanels.js (extension)
+                        + src/../jquery-snippets.js (core) -->
+  <script src="../assets/js/vendors.bundle.js"></script>
+  <script src="../assets/js/app.bundle.js"></script>
+  <script src="../assets/js/datagrid/datatables/datatables.bundle.js"></script>
+  <script>
+    $(document).ready(function() {
+      var searchRequest = null;
+
+      $(function() {
+        var minlength = 3;
+
+        $("#search_apps").keyup(function() {
+          var that = this,
+            value = $(this).val();
+          console.log('key : ' + value);
+          var valCategory = "Web";
+          $.ajax({
+            url: 'https://sim.rembangkab.go.id/portal/home/search',
+            type: 'POST', // Tentukan type nya POST atau GET
+            data: {
+              category: valCategory,
+              keyword: value
+            }, // Set data yang akan dikirim
+            dataType: "json",
+            beforeSend: function(e) {
+              if (e && e.overrideMimeType) {
+                e.overrideMimeType("application/json;charset=UTF-8");
+              }
+            },
+            success: function(response) {
+              $("#view").html(response.hasil);
+            },
+            error: function(xhr, ajaxOptions, thrownError) { // Ketika terjadi error
+              alert(xhr.responseText); // munculkan alert
+            }
+          });
+        });
+      });
+
+      $('#table-sm-1').dataTable({
+        responsive: true,
+        pageLength: 100,
+        order: [
+          [0, 'asc']
+        ]
+      });
+
+      $('#table-covid').dataTable({
+        responsive: true,
+        pageLength: 100,
+        order: [
+          [0, 'asc']
+        ],
+        searching: false,
+        bLengthChange: false
+      });
+    });
+  </script>
+
+</body>
+
+<!-- Mirrored from sim.rembangkab.go.id/portal/home/web by HTTrack Website Copier/3.x [XR&CO'2017], Wed, 14 Dec 2022 19:06:48 GMT -->
+
+</html>

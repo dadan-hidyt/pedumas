@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<!-- Mirrored from sim.rembangkab.go.id/portal/assets/webfonts/webfonts/nextgen-icons.svg by HTTrack Website Copier/3.x [XR&CO'2017], Wed, 14 Dec 2022 19:08:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <title>SIM Rembang</title>
+    <meta name="description" content="SIM Rembang">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+    <!-- Call App Mode on ios devices -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- base css -->
+    <link rel="stylesheet" media="screen, print" href="../../css/vendors.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="../../css/app.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="../../css/datagrid/datatables/datatables.bundle.css">
+        <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/logo.png">
+    <link rel="mask-icon" href="../../img/logo.png" color="#5bbad5">
+    <meta name="hostname" content="../../../index.html">
+    <meta name="app-url" content="../../../index.html">
+    <meta name="assets-url" content="../../index.html">
+    <meta name="environment" content="">
+    <meta name="author" content="Moh Rifqi Azizi | Muntahar | Pemkab Rembang">
+    <!-- Optional: page related CSS -->
+    <!-- PHP docs -->
+    <link rel="stylesheet" media="screen, print" href="../../css/markdown.css">
+    <!--  -->
+</head>
+    <body>
+        <div class="page-wrapper">
+            <div class="page-inner bg-brand-gradient">
+                <div class="page-content-wrapper bg-transparent m-0">
+                    <div class="height-10 w-100 shadow-lg px-4 bg-brand-gradient">
+                        <div class="d-flex align-items-center container p-0">
+                            <div class="page-logo width-mobile-auto m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9">
+                                <a href="../../../index.html" class="page-logo-link press-scale-down d-flex align-items-center">
+                                    <img src="../../img/logo.png" alt="SIM Rembang" aria-roledescription="logo">
+                                    <span class="page-logo-text mr-1">SIM Rembang</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1" style="background: url(../../img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">
+                        <div class="container py-4 py-lg-5 my-lg-5 px-4 px-sm-0">
+                            <div class="h-alt-f d-flex flex-column align-items-center justify-content-center text-center">
+	<h1 class="page-error text-white">
+		ERROR 404</span>
+		<small class="fw-500">
+			Something went wrong!
+		</small>
+	</h1>
+	<h3 class="text-white mb-5">
+		You have experienced a technical error. We apologize.
+	</h3>
+	<h4 class="text-white">
+		We are working hard to correct this issue. Please wait a few moments and try your search again.
+		<br><a href="../../../index.html" class="color-danger-600">Click here</a> to return to our main page:
+	</h4>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Isi Script GOOGLE ANALYTICS -->
+<!-- base vendor bundle: 
+             DOC: if you remove pace.js from core please note on Internet Explorer some CSS animations may execute before a page is fully loaded, resulting 'jump' animations 
+                        + pace.js (recommended)
+                        + jquery.js (core)
+                        + jquery-ui-cust.js (core)
+                        + popper.js (core)
+                        + bootstrap.js (core)
+                        + slimscroll.js (extension)
+                        + app.navigation.js (core)
+                        + ba-throttle-debounce.js (core)
+                        + waves.js (extension)
+                        + smartpanels.js (extension)
+                        + src/../jquery-snippets.js (core) -->
+<script src="../../js/vendors.bundle.js"></script>
+<script src="../../js/app.bundle.js"></script>
+<script src="../../js/datagrid/datatables/datatables.bundle.js"></script>
+<script>
+$(document).ready(function(){
+    var searchRequest = null;
+
+    $(function () {
+        var minlength = 3;
+
+        $("#search_apps").keyup(function () {
+            var that = this,
+            value = $(this).val();
+            console.log('key : ' + value);
+            var valCategory = "";
+            $.ajax({
+            url: 'https://sim.rembangkab.go.id/portal/home/search',
+            type: 'POST', // Tentukan type nya POST atau GET
+            data: {category: valCategory, keyword: value}, // Set data yang akan dikirim
+            dataType: "json",
+            beforeSend: function(e) {
+                if(e && e.overrideMimeType) {
+                e.overrideMimeType("application/json;charset=UTF-8");
+                }
+            },
+            success: function(response){ 
+                $("#view").html(response.hasil);
+            },
+            error: function (xhr, ajaxOptions, thrownError) { // Ketika terjadi error
+                alert(xhr.responseText); // munculkan alert
+            }
+            });
+        });
+    });
+
+    $('#table-sm-1').dataTable(
+        {
+        responsive: true,
+        pageLength: 100,
+        order: [
+            [0, 'asc']
+        ]
+    }); 
+
+    $('#table-covid').dataTable(
+        {
+        responsive: true,
+        pageLength: 100,
+        order: [
+            [0, 'asc']
+        ],
+        searching: false,
+        bLengthChange: false
+    }); 
+});
+</script>
+
+        <script>
+            $(document).ready(function(){
+                $('#frm-login').submit(function(e){
+                    var form_data = $(this).serialize();
+                    
+                    $.ajax({
+                    type: "POST",
+                    url: $(this).attr('action'),
+                    data: form_data,
+                    dataType: 'json',
+                    success: function(ret){
+                        console.log(ret);
+                        if(ret.result){
+                            window.location.replace(ret.url);
+                        }else{
+                            document.getElementById('alertGagalLogin').style.display = 'block';
+                        }
+                    },
+                    });
+                    
+                    e.preventDefault();
+                });
+                $(function(){
+                    $("[data-hide]").on("click", function(){
+                        $("." + $(this).attr("data-hide")).hide();
+                    });
+                });
+            
+            });
+        </script>
+    </body>
+
+<!-- Mirrored from sim.rembangkab.go.id/portal/assets/webfonts/webfonts/nextgen-icons.svg by HTTrack Website Copier/3.x [XR&CO'2017], Wed, 14 Dec 2022 19:08:01 GMT -->
+</html>
