@@ -22,11 +22,12 @@ use App\Http\Controllers\Masyarakat\{
 */
 
 Route::get('/login', LoginController::class)->name('login');
-Route::get('/daftar', RegisterController::class)->name('daftar');
+Route::get('/masyarakat/daftar', RegisterController::class)->name('daftar');
 
 Route::prefix('masyarakat')->middleware('auth:masyarakat')->group(function () {
     Route::get('/', MasyarakatDashboardController::class)->name('masyarakat.dashboard');
     Route::prefix('pengaduan')->group(function () {
+        Route::get('{id}/detail', [MasyarakatPengaduanController::class, 'show'])->name('masyarakat.pengaduan.detail');
         Route::get('{id}/tanggapan', [MasyarakatPengaduanController::class, 'index'])->name('masyarakat.pengaduan.tanggapan');
         Route::get('all', [MasyarakatPengaduanController::class, 'index'])->name('masyarakat.pengaduan.index');
         Route::get('buat', [MasyarakatPengaduanController::class, 'create'])->name('masyarakat.pengaduan.buat');

@@ -32,9 +32,8 @@
             @enderror
           </div>
           <div class="form-group">
-            {{ $this->login_sebagai }}
             <label for="login_sebagai">Login Sebagai</label>
-            <select require wire:model="login_sebagai" class="form-control">
+            <select required wire:model="login_sebagai" class="form-control">
               <option value="masyakarat">Masyarakat</option>
               <option value="petugas">Petugas</option>
             </select>
@@ -43,6 +42,9 @@
             <button class="btn btn-primary">LOGIN
               <div wire:loading wire:target='login' class="spinner-grow" style="height: 20px; width: 20px" role="status">
               </div></button>
+            </div>
+            <div class="mt-3">
+              <span>Belum Ada akun?<a href="{{ route('daftar') }}">Daftar</a></span>
             </div>
           </form>
         </div>

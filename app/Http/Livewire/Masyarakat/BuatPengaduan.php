@@ -22,7 +22,7 @@ class BuatPengaduan extends Component
        $this->pengaduan_data['foto'] = 'foto_pengaduan/'.Auth::guard()->user()->username."/".$this->pengaduan_poto->getClientOriginalName();
        if(Pengaduan::insert($this->pengaduan_data)){
         $this->pengaduan_poto->storeAs('public',$this->pengaduan_data['foto']);
-        return session()->flash('success',"Pengaduan berhasil di buat!");
+        return redirect()->route('masyarakat.dashboard');
     }
     return session()->flash('gagal',"Pengaduan gagal di kirim!");
 }

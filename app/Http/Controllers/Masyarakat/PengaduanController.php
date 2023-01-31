@@ -14,10 +14,10 @@ class PengaduanController extends Controller
      */
     public function index()
     {
-       $title = "Semua Pengaduan";
-       $pengaduan = \App\Models\Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->get();
-       return view('masyarakat.semua_pengaduan', compact('title','pengaduan'));
-   }
+     $title = "Semua Pengaduan";
+     $pengaduan = \App\Models\Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->get();
+     return view('masyarakat.semua_pengaduan', compact('title','pengaduan'));
+ }
 
     /**
      * Show the form for creating a new resource.
@@ -49,7 +49,12 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\Models\Pengaduan::find($id);
+        if ($data->nik == \Auth::guard('masyarakat')->user()->nik) {
+            $title = "Detail Pengaduan";
+            return view('masyarakat.detail_pengaduan',compact('data','title'));
+        }
+
     }
 
     /**

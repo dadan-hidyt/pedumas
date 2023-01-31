@@ -20,7 +20,7 @@ class Login extends Component
          */
         $loginMasyarakat = Auth::guard('masyarakat')->attempt($this->user,true);
         if($loginMasyarakat === true){
-            return redirect()->intended('dashboard');
+            return redirect()->intended('masyarakat.dashboard');
         }
     }
     public function render()

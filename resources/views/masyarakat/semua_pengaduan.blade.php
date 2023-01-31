@@ -28,24 +28,22 @@
 						<th>Tanggal</th>
 						<th>Status</th>
 						<th>Tanggapan</th>
-						<th>Isi Laporan</th>
-						<th>Foto</th>
 						<th>action</th>
 					</tr>
 				</thead>
 				<tbody>
 					@if (!empty($pengaduan))
 					@php
-						$i = 0;
+					$i = 0;
 					@endphp
 					@foreach ($pengaduan as $element)
 					@php
-						$i++;
+					$i++;
 					@endphp
 					<tr>
 						<td>{{ $i; }}</td>
 						<td>{{ $element->judul_pengaduan; }}</td>
-						<td>{{ $element->tgl_pengaduan; }}</td>
+						<td>{{ (new \Carbon\Carbon($element->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</td>
 						<td>
 							@if ($element->status == 0)
 							<span class="badge badge-danger">Pending</span>
@@ -57,6 +55,7 @@
 							@endif
 							@endif
 						</td>
+						
 						<td>
 							@if ($element->tanggapan->count() >= 1)
 							<a href="{{route('masyarakat.pengaduan.tanggapan',$element->id)}}" target="_blank" title="Detail">
@@ -66,15 +65,8 @@
 							<span>Belum Di tanggapi</span>
 							@endif
 						</td>
-						<td>{{ $element->isi_laporan; }}</td>
 						<td>
-							@if (!empty($element->foto))
-							<img width="100px" src="{{ asset('storage/'.$element->foto); }}" alt="">
-							@endif
-						</td>
-
-						<td>
-							<a href="../../../external.html?link=http://ronggomulyo-rembang.desa.id/" target="_blank" class="btn btn-success btn-sm btn-icon" title="Detail">
+							<a href="{{route('masyarakat.pengaduan.detail',$element->id)}}" target="_blank" class="btn btn-success btn-sm btn-icon" title="Detail">
 								<i class="fal fa-eye"></i>
 							</a>
 							<a href="../../../external.html?link=http://ronggomulyo-rembang.desa.id/" target="_blank" class="btn btn-success btn-sm btn-icon" title="Detail">

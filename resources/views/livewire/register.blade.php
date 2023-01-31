@@ -43,9 +43,12 @@
     @enderror
 </div>
 <div class="mt-3 mb-3">
-    <button class="btn btn-primary">daftar
+    <button class="btn btn-block btn-primary">Daftar Akun
         <div wire:loading wire:target='login' class="spinner-grow" style="height: 20px; width: 20px" role="status">
         </div></button>
+    </div>
+    <div class="mt-3">
+      <span>Sudah Ada akun?<a href="{{ route('login') }}">Login</a></span>
     </div>
 </form>
 </div>
