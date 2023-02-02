@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('username',50);
             $table->string('password',150);
             $table->rememberToken();
+            $table->datetime('updated_at');
+            $table->datetime('deleted_at');
             $table->primary('nik');
         });
     }

@@ -24,9 +24,9 @@
 			<b>TANGGAPAN: </b>
 			@if ($data->tanggapan()->count() > 0)
 			@foreach ($data->tanggapan as $element)
-			<div class="bg-info rounded">
-				<div style="border-bottom: 1px dashed #dedede;font-size: 12px;" class="bg-dark text-white p-2">
-					Petugas : Dedy - {{ (new \Carbon\Carbon($data->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
+			<div class="border bg-info mb-3 rounded">
+				<div style="font-size: 12px;" class="bg-info rounded shadow col-md-4 text-white p-2">
+					<i class="fal fa-user"></i> : Dedy - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($data->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
 				</div>
 				<p class="p-3 text-white">
 					{{ $element->tanggapan }}

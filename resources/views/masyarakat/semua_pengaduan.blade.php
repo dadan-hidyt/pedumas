@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="rounded">
-	<a href="http://dadan.com" target="_blank">
+	<a href="http://dadan.com">
 		<img  class="rounded" src="{{ asset('assets/banner_pengaduan.png') }}" width="100%" alt="">
 	</a>
 </div>
@@ -18,6 +18,9 @@
 	</div>
 	<div class="panel-container show">
 		<div class="panel-content">
+			@error('success')
+			<p class="alert alert-info">{{ $message }}</p>
+			@enderror
 			<table id="table_pengaduan" class="table table-sm table-bordered table-hover table-striped m-0">
 				<thead>
 					<tr>
@@ -56,7 +59,7 @@
 						
 						<td>
 							@if ($element->tanggapan->count() >= 1)
-							<a href="{{route('masyarakat.pengaduan.tanggapan',$element->id)}}" target="_blank" title="Detail">
+							<a href="{{route('masyarakat.pengaduan.detail',$element->id)}}" title="Detail">
 								<i class="fal fa-eye"></i> Lihat Tanggapan
 							</a>
 							@else
@@ -64,11 +67,14 @@
 							@endif
 						</td>
 						<td>
-							<a href="{{route('masyarakat.pengaduan.detail',$element->id)}}" target="_blank" class="btn btn-success btn-sm btn-icon" title="Detail">
+							<a href="{{route('masyarakat.pengaduan.detail',$element->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
 								<i class="fal fa-eye"></i>
 							</a>
-							<a href="../../../external.html?link=http://ronggomulyo-rembang.desa.id/" target="_blank" class="btn btn-success btn-sm btn-icon" title="Detail">
-								<i class="fal fa-eye"></i>
+							<a href="{{route('masyarakat.pengaduan.edit',$element->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
+								<i class="fal fa-edit"></i>
+							</a>
+							<a onclick="return confirm('Apakah anda yakin?')" href="{{ route('masyarakat.pengaduan.delete',$element->id) }}" class="btn btn-danger btn-sm btn-icon" title="delete">
+								<i class="fal fa-trash"></i>
 							</a>
 						</td>
 					</tr>

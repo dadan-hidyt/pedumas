@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Masyarakat;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Pengaduan;
 class PengaduanController extends Controller
 {
     /**
@@ -15,7 +16,7 @@ class PengaduanController extends Controller
     public function index()
     {
      $title = "Semua Pengaduan";
-     $pengaduan = \App\Models\Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->get();
+     $pengaduan = Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->get();
      return view('masyarakat.semua_pengaduan', compact('title','pengaduan'));
  }
 
@@ -29,18 +30,6 @@ class PengaduanController extends Controller
         $title = "Buat Pengaduan";
         return view('masyarakat.buat_pengaduan', compact('title'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * 
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
@@ -49,7 +38,7 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\Pengaduan::find($id);
+        $data = Pengaduan::find($id);
         if ($data->nik == \Auth::guard('masyarakat')->user()->nik) {
             $title = "Detail Pengaduan";
             return view('masyarakat.detail_pengaduan',compact('data','title'));
@@ -65,7 +54,9 @@ class PengaduanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = "Edit Pengaduan";
+        $pengaduan = Pengaduan::find($id)->toArray();
+        return view('masyarakat.edit_pengaduan',compact('title','pengaduan'));
     }
 
     /**
@@ -88,6 +79,8 @@ class PengaduanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pengaduan::findOrFail($id);
+        Pengaduan::find($id)->delete($id);
+        return redirect()->back()->withErrors(['success'=>"Pengaduan berhasil di hapus!"]);
     }
 }

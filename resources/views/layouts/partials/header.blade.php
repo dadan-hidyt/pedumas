@@ -100,6 +100,9 @@
               </div>
             </div>
           </div>
+          <a href="{{ route('user.akun') }}" class="dropdown-item">
+            <span>Pengaturan Akun</span>
+          </a>
           <div class="dropdown-divider m-0"></div>
           <a href="#" class="dropdown-item" data-action="app-fullscreen">
             <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
