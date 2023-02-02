@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="isi">Isi Laporan</label>
-                    <textarea wire:model="pengaduan_data.isi_laporan" id="" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea  wire:model="pengaduan_data.isi_laporan" id="isi_laporan" cols="30" rows="10" class="form-control"></textarea>
                     @error('pengaduan_data.isi_laporan')
                     <i class="text-danger"> {{ $message }}</i>
                     @enderror

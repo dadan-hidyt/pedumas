@@ -2,8 +2,8 @@
  <aside class="page-sidebar list-filter-active">
  	<div class="page-logo">
  		<a href="web.html" class="page-logo-link press-scale-down d-flex align-items-center position-relative">
- 			<img src="{{ asset('assets/logo.png') }}" style="width:40px!important;" alt="PEDUMAS-IFSU" aria-roledescription="logo">
- 			<span class="page-logo-text mr-1">PEDUMAS <br> KABUPATEN IFSU</span>
+ 			<img src="{{ asset('assets/newlogo.png') }}" style="width:40px!important;" alt="PEDUMAS-IFSU" aria-roledescription="logo">
+ 			<span class="page-logo-text mr-1">PEDUMAS</span>
  			<span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
  		</a>
  	</div>

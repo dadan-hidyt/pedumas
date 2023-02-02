@@ -8,24 +8,33 @@
 		<hr>
 		<dd><b>Tanggal</b>: {{ (new \Carbon\Carbon($data->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</dd>
 		<hr>
-		<dd><b>Isi Pengaduan</b>:
+		<dd>
+			<b>Attachment:</b>
 			<br>
-			<div class="alert alert-info">
+			<img class="rounded border" width="200px" src="{{ asset('storage/'.$data->foto) }}" alt="">
+		</dd>
+		<hr>
+		<dd><b>ISI PENGADUAN</b>:
+			<br>
+			<div class="p-3 bg-white border rounded">
 				{{ $data->isi_laporan }}
 			</div>
 		</dd>
 		<dd>
-			Tanggapan: 
-			@if ($data->tanggapan)
-				@foreach ($data->tanggapan as $element)
-					<div class="bg-success text-white rounded border p-3">
-						Petugas : Dedy - {{ (new \Carbon\Carbon($data->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
-						<hr>
-						<p>
-							{{ $element->tanggapan }}
-						</p>
-					</div>
-				@endforeach
+			<b>TANGGAPAN: </b>
+			@if ($data->tanggapan()->count() > 0)
+			@foreach ($data->tanggapan as $element)
+			<div class="bg-info rounded">
+				<div style="border-bottom: 1px dashed #dedede;font-size: 12px;" class="bg-dark text-white p-2">
+					Petugas : Dedy - {{ (new \Carbon\Carbon($data->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
+				</div>
+				<p class="p-3 text-white">
+					{{ $element->tanggapan }}
+				</p>
+			</div>
+			@endforeach
+			@else
+			<span class="badge badge-info">Belum Ada tanggapan</span>
 			@endif
 		</dd>
 	</dt>

@@ -1,16 +1,14 @@
 @extends('layouts.app')
 @section('content')
 <div class="rounded">
-	<a href="../../service-desk/index.html" target="_blank">
-		<img  class="rounded" src="{{ asset('assets/img/iklan-kms-rembang.png') }}" width="100%" alt="">
+	<a href="http://dadan.com" target="_blank">
+		<img  class="rounded" src="{{ asset('assets/banner_pengaduan.png') }}" width="100%" alt="">
 	</a>
 </div>
-
-
 <div id="panel-1" class="panel">
 	<div class="panel-hdr">
 		<h2>
-			Web Desa
+			Lists Pengaduan
 		</h2>
 		<div class="panel-toolbar">
 			<button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
@@ -20,7 +18,7 @@
 	</div>
 	<div class="panel-container show">
 		<div class="panel-content">
-			<table id="table-sm-1" class="table table-sm table-bordered table-hover table-striped m-0">
+			<table id="table_pengaduan" class="table table-sm table-bordered table-hover table-striped m-0">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -83,3 +81,15 @@
 </div>
 
 @endsection
+
+@push('javascript')
+<script>
+	$('#table_pengaduan').dataTable({
+		responsive: true,
+		pageLength: 10,
+		order: [
+			[0, 'asc']
+			]
+	});
+</script>
+@endpush

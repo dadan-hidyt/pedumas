@@ -3,8 +3,8 @@
     <!-- we need this logo when user switches to nav-function-top -->
     <div class="page-logo">
       <a href="#" class="page-logo-link press-scale-down d-flex align-items-center position-relative" data-toggle="modal" data-target="#modal-shortcut">
-        <img style="width:40px;" src="logo.png" alt="SIM Rembang" aria-roledescription="logo">
-        <span class="page-logo-text mr-1">SIM Rembang</span>
+        <img style="width:40px;" src="{{ asset('assets/newlogo.png') }}" alt="logo" aria-roledescription="logo">
+        <span class="page-logo-text mr-1">{{ config('app.name') }}</span>
         <span class="position-absolute text-white opacity-50 small pos-top pos-right mr-2 mt-n2"></span>
         <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
       </a>
@@ -86,13 +86,13 @@
       <!-- app user menu -->
       <div>
         <a href="#" data-toggle="dropdown" title="{{ config('app.name') }}" class="header-icon d-flex align-items-center justify-content-center ml-2">
-          <img src="{{ asset('assets/logo2.png') }}" class="profile-image rounded-circle" alt="{{ config('app.name') }}">
+          <img src="{{ asset('assets/newlogo.png') }}" class="profile-image rounded-circle" alt="{{ config('app.name') }}">
         </a>
         <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
           <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
             <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
               <span class="mr-2">
-                <img src="{{ asset('assets/logo2.png') }}" class="rounded-circle profile-image" alt="{{ config('app.name') }}">
+                <img src="{{ asset('assets/newlogo.png') }}" class="rounded-circle profile-image" alt="{{ config('app.name') }}">
               </span>
               <div class="info-card-text">
                 <div class="fs-lg text-truncate text-truncate-lg"><?= Auth::guard('masyarakat')->user()->nama ?></div>
