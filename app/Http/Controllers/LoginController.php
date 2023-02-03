@@ -11,13 +11,13 @@ class LoginController extends Controller
     }
     /**
      * Handle the incoming request.
-     *
+ 
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
     {
-        $title = "Login - Masyarakat";
+        $title = "Login Ke akun";
         return view('login',compact('title'));
     }
 }

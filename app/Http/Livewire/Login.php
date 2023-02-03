@@ -19,12 +19,25 @@ class Login extends Component
          * Login Sebagai masyarakat
          */
         $loginMasyarakat = Auth::guard('masyarakat')->attempt($this->user,true);
-        if($loginMasyarakat === true){
-            return redirect()->intended('masyarakat.dashboard');
-        }
-    }
-    public function render()
-    {
-        return view('livewire.login', ['user' => $this->user]);
-    }
+        $loginPetugas = Auth::guard('petugas')->attempt($this->user,true);
+        if($this->login_sebagai ==='masyarakat'){
+            if ($loginMasyarakat === true) {
+                return redirect()->route('masyarakat.dashboard');
+            } else {
+              session()->flash('login_gagal',"Login Sebagai masyarakat gagal : Akun tidak di temukan!");
+          }
+      } else if($this->login_sebagai ==='petugas'){
+        if ($loginPetugas === true) {
+            return redirect()->route('petugas.dashboard');
+        } else {
+          session()->flash('login_gagal',"Login Sebagai petugas gagal : Akun tidak di temukan!");
+      }
+  } else {
+      session()->flash('login_gagal',"Kesalahan tidak di ketahui");
+  }
+}
+public function render()
+{
+    return view('livewire.login', ['user' => $this->user]);
+}
 }

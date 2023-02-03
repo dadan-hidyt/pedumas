@@ -19,16 +19,19 @@ class BuatPengaduan extends Component
     );
     public function simpan(){
         $this->validate();
-       $this->pengaduan['foto'] = 'foto_pengaduan/'.Auth::guard()->user()->username."/".$this->pengaduan_poto->getClientOriginalName();
-       if(Pengaduan::insert($this->pengaduan)){
-        $this->pengaduan_poto->storeAs('public',$this->pengaduan['foto']);
-        return redirect()->route('masyarakat.dashboard');
+        $this->pengaduan['foto'] = 'foto_pengaduan/'.Auth::guard()->user()->username."/".$this->pengaduan_poto->getClientOriginalName();
+        if (cariKataDilarang(text:$this->pengaduan['isi_laporan'],dataset:config('sensor_kata')) >= 3) {
+            return session()->flash('gagal',"Isi pengaduan anda mengandung kata kata kotor! Silahkan gunakan kata2 yang sopan.");
+        }
+        if(Pengaduan::insert($this->pengaduan)){
+            $this->pengaduan_poto->storeAs('public',$this->pengaduan['foto']);
+            return redirect()->route('masyarakat.dashboard');
+        }
+        return session()->flash('gagal',"Pengaduan gagal di kirim!");
     }
-    return session()->flash('gagal',"Pengaduan gagal di kirim!");
-}
-public function render()
-{
-    $this->pengaduan['nik'] = Auth::guard('masyarakat')->user()->nik;
-    return view('livewire.masyarakat.buat-pengaduan',['data'=>$this->pengaduan]);
-}
+    public function render()
+    {
+        $this->pengaduan['nik'] = Auth::guard('masyarakat')->user()->nik;
+        return view('livewire.masyarakat.buat-pengaduan',['data'=>$this->pengaduan]);
+    }
 }

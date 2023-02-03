@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('password',150);
             $table->string('no_telp',12);
-            $table->enum('level',['admin','petugas']);
+            $table->rememberToken();
+            $table->enum('level',['admin','petugas'])->default('petugas');
         });
     }
 

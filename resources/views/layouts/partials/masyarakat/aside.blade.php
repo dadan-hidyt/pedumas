@@ -34,7 +34,7 @@
  				</a>
  			</li>
 			<li>
- 				<a href="web-instansi.html" title="Logout" data-filter-tags="logout" class=" waves-effect waves-themed" aria-expanded="false">
+ 				<a onclick="return confirm('apakah anda yakin ingin logout {{ auth()->guard('masyarakat')->user()->nama }}?')" href="{{ route('masyarakat.logout') }}" title="Logout" data-filter-tags="logout" class=" waves-effect waves-themed" aria-expanded="false">
  					<i class="fal fa-sign-out"></i>
  					<span class="nav-link-text" data-i18n="nav.webinstansi">Logout</span>
  				</a>

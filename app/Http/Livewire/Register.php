@@ -9,7 +9,7 @@ class Register extends Component
 {
     protected $rules = [
         'user.nama' => 'required',
-        'user.nik' => 'required',
+        'user.nik' => 'required|max:16|min:16',
         'user.password' => 'required',
         'user.username' => 'required',
     ];

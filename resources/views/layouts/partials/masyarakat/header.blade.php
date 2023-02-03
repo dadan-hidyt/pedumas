@@ -61,55 +61,68 @@
         <div class="dropdown-menu dropdown-menu-animated w-auto h-auto">
           <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top">
             <h4 class="m-0 text-center color-white">
-              Quick Shortcut web <small class="mb-0 opacity-80">User Applications & Addons</small>
-            </h4>
+             Jalan Pintas
+           </h4>
+         </div>
+         <div class="custom-scroll h-100">
+          <div class="app-list">
+            <li>
+              <a href="{{ route('masyarakat.pengaduan.buat') }}" class="app-list-item hover-white">
+                <span class="icon-stack">
+                  <i class="base-5 icon-stack-3x color-primary-600"></i>
+                  <i class="base-7 icon-stack-2x color-primary-700"></i>
+                  <i class="fal fal fa-plus icon-stack-1x text-white fs-lg"></i>
+                </span>
+                <span class="app-list-name">
+                  Buat Pengaduan
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('masyarakat.pengaduan.index') }}" class="app-list-item hover-white">
+                <span class="icon-stack">
+                  <i class="base-5 icon-stack-3x color-primary-600"></i>
+                  <i class="base-7 icon-stack-2x color-primary-700"></i>
+                  <i class="fal fal fa-file icon-stack-1x text-white fs-lg"></i>
+                </span>
+                <span class="app-list-name">
+                 Semua Pengaduan
+                </span>
+              </a>
+            </li>
           </div>
-          <div class="custom-scroll h-100">
-            <div class="app-list">
-              <li>
-                <a href="external.html?link=http://data.rembangkab.go.id/" class="app-list-item hover-white">
-                  <span class="icon-stack">
-                    <i class="base-5 icon-stack-3x color-primary-600"></i>
-                    <i class="base-7 icon-stack-2x color-primary-700"></i>
-                    <i class="fal fal fa-database icon-stack-1x text-white fs-lg"></i>
-                  </span>
-                  <span class="app-list-name">
-                  Open Data </span>
-                </a>
-              </li>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- app message -->
-
-      <!-- app user menu -->
-      <div>
-        <a href="#" data-toggle="dropdown" title="{{ config('app.name') }}" class="header-icon d-flex align-items-center justify-content-center ml-2">
-          <img src="{{ asset('assets/newlogo.png') }}" class="profile-image rounded-circle" alt="{{ config('app.name') }}">
-        </a>
-        <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
-          <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
-            <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
-              <span class="mr-2">
-                <img src="{{ asset('assets/newlogo.png') }}" class="rounded-circle profile-image" alt="{{ config('app.name') }}">
-              </span>
-              <div class="info-card-text">
-                <div class="fs-lg text-truncate text-truncate-lg"><?= Auth::guard('masyarakat')->user()->nama ?></div>
-                <span>Masyarakat</span>
-              </div>
-            </div>
-          </div>
-          <a href="{{ route('user.akun') }}" class="dropdown-item">
-            <span>Pengaturan Akun</span>
-          </a>
-          <div class="dropdown-divider m-0"></div>
-          <a href="#" class="dropdown-item" data-action="app-fullscreen">
-            <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
-            <i class="float-right text-muted fw-n">F11</i>
-          </a>
         </div>
       </div>
     </div>
-  </header>
+    <!-- app message -->
+
+    <!-- app user menu -->
+    <div>
+      <a href="#" data-toggle="dropdown" title="{{ config('app.name') }}" class="header-icon d-flex align-items-center justify-content-center ml-2">
+        <img src="{{ asset('assets/newlogo.png') }}" class="profile-image rounded-circle" alt="{{ config('app.name') }}">
+      </a>
+      <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+        <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+          <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+            <span class="mr-2">
+              <img src="{{ asset('assets/newlogo.png') }}" class="rounded-circle profile-image" alt="{{ config('app.name') }}">
+            </span>
+            <div class="info-card-text">
+              <div class="fs-lg text-truncate text-truncate-lg"><?= Auth::guard('masyarakat')->user()->nama ?></div>
+              <span>Masyarakat</span>
+            </div>
+          </div>
+        </div>
+        <a href="{{ route('user.akun') }}" class="dropdown-item">
+          <span>Pengaturan Akun</span>
+        </a>
+        <div class="dropdown-divider m-0"></div>
+        <a href="#" class="dropdown-item" data-action="app-fullscreen">
+          <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+          <i class="float-right text-muted fw-n">F11</i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
         <!-- END Page Header -->

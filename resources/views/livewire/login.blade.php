@@ -1,6 +1,6 @@
 <div class="col-md-4 mx-auto mt-5">
  <!-- panel start -->
- <div id="panel-1" class="panel">
+ <div id="panel-1" class="panel auth">
    <div class="panel-hdr">
      <h2> LOGIN - PEDUMAS KAB.IFSU </h2>
      <div class="panel-toolbar">

@@ -4,6 +4,7 @@
 <div class="row">
     <div class="col-md-12 col-xl-12">
         <!--Basic alerts-->
+        <div class="alert alert-warning">Selamat senang <b>{{ auth()->guard('masyarakat')->user()->nama }}</b></div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12 pt-2">
                 <div class="card mb-2 bg-warning-800">

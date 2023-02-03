@@ -25,6 +25,7 @@
     <meta name="environment" content="">
     <meta name="author" content="Andry Hidayat">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets') }}/css/markdown.css">
+    <link rel="stylesheet" media="all" href="{{ asset('assets/css/custome.css') }}">
     @livewireStyles
 </head>
 
@@ -84,26 +85,37 @@
     <!-- BEGIN Page Wrapper -->
     <div class="page-wrapper">
         <div class="page-inner">
-            @include('layouts.partials.aside')
+            @if (Request()->route()->getPrefix() === '/petugas')
+            @include('layouts.partials.petugas.aside')
+            @else
+            @include('layouts.partials.masyarakat.aside')
+            @endif
             <div class="page-content-wrapper">
-                @include('layouts.partials.header')
-                <!-- BEGIN Page Content -->
-                <!-- the #js-page-content id is needed for some plugins to initialize -->
-                <main id="js-page-content" role="main" class="page-content">
-                 @yield('content')
-             </main>
-             <!-- END Page Content -->
-             <!-- this overlay is activated only when mobile menu is triggered -->
-             <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
-             @include('layouts.partials.footer')
-             <!-- BEGIN Shortcuts -->
-         </div>
-     </div>
- </div>
- <!-- END Page Wrapper -->
- <!-- BEGIN Quick Menu -->
- <!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
- <nav class="shortcut-menu d-none d-sm-block">
+              @if (Request()->route()->getPrefix() === '/petugas')
+              @include('layouts.partials.petugas.header')
+              @else
+              @include('layouts.partials.masyarakat.header')
+              @endif
+              <!-- BEGIN Page Content -->
+              <!-- the #js-page-content id is needed for some plugins to initialize -->
+              <main id="js-page-content" role="main" class="page-content">
+               @yield('content')
+           </main>
+           <!-- END Page Content -->
+           <!-- this overlay is activated only when mobile menu is triggered -->
+           <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
+           @if (Request()->route()->getPrefix() === '/petugas')
+           @include('layouts.partials.petugas.footer')
+           @else
+           @include('layouts.partials.masyarakat.footer')
+           @endif             <!-- BEGIN Shortcuts -->
+       </div>
+   </div>
+</div>
+<!-- END Page Wrapper -->
+<!-- BEGIN Quick Menu -->
+<!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
+<nav class="shortcut-menu d-none d-sm-block">
     <input type="checkbox" class="menu-open" name="menu-open" id="menu_open" />
     <label for="menu_open" class="menu-open-button ">
         <span class="app-shortcut-icon d-block"></span>
