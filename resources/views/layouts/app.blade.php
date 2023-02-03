@@ -179,6 +179,8 @@ aria-hidden="true">
 <script src="{{ asset('assets') }}/js/vendors.bundle.js"></script>
 <script src="{{ asset('assets') }}/js/app.bundle.js"></script>
 <script src="{{ asset('assets') }}/js/datagrid/datatables/datatables.bundle.js"></script>
+<script src="{{ asset('assets') }}/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
 @stack('javascript')
 @livewireScripts
 </body>
