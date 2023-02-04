@@ -2,13 +2,13 @@
     <h4>Detail Pengaduan</h4>
     <hr>
     <dt>
-       <dd><b>Pengadu</b>: {{ $pengaduan->masyarakat->nama }} |  {{ $pengaduan->masyarakat->nik }}</dd>
-       <hr>
-       <dd><b>Judul Pengaduan</b>: {{ $pengaduan->judul_pengaduan }}</dd>
-       <hr>
-       <dd><b>Tanggal</b>: {{ (new \Carbon\Carbon($pengaduan->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</dd>
-       <hr>
-       <dd>
+     <dd><b>Pengadu</b>: {{ $pengaduan->masyarakat->nama }} |  {{ $pengaduan->masyarakat->nik }}</dd>
+     <hr>
+     <dd><b>Judul Pengaduan</b>: {{ $pengaduan->judul_pengaduan }}</dd>
+     <hr>
+     <dd><b>Tanggal</b>: {{ (new \Carbon\Carbon($pengaduan->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</dd>
+     <hr>
+     <dd>
         <b>Attachment:</b>
         <br>
         <img class="rounded border" width="200px" src="{{ asset('storage/'.$pengaduan->foto) }}" alt="">
@@ -31,15 +31,13 @@
                 :: <a onclick="return confirm('Apakah anda yakin?')" class="bg-danger p-1 rounded-circle" href="{{ route('petugas.pengaduan.tanggapan.delete',[$pengaduan->id,$element->id]) }}"><i class="fal text-white fa-trash"></i></a>
                 @endif
             </div>
-
             <p class="p-3 text-white">
                 {{ $element->tanggapan }}
             </p>
-
         </div>
         @endforeach
         @else
-           <span class="badge badge-info">Belum Ada tanggapan</span>
+        <span class="badge badge-info">Belum Ada tanggapan</span>
         @endif
     </dd>
 </dt>
@@ -84,10 +82,3 @@
 </div>
 </div>
 </div>
-@push('javascript')
-@if (session()->has('success'))
-<script>
-    $('#modal_tanggapan').modal('hide');
-</script>
-@endif
-@endpush

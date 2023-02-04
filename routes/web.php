@@ -28,7 +28,7 @@ use App\Http\Controllers\Petugas\{
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::view('/','landing_page');
 Route::get('/login', LoginController::class)->name('login');
 Route::get('/masyarakat/daftar', RegisterController::class)->name('daftar');
 Route::get('/masyarakat/logout', function(){
