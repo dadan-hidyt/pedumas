@@ -14,7 +14,8 @@ use App\Http\Controllers\Masyarakat\{
 use App\Http\Controllers\Petugas\{
     DashboardController as PetugasDashboardController,
     PengaduanController as PetugasPengaduanController,
-    AkunController as PetugasAkunController
+    AkunController as PetugasAkunController,
+    KelolaPengaduanController,
 };
 
 /*
@@ -42,12 +43,19 @@ Route::name('petugas')->prefix('petugas')->group(function(){
     Route::get('logout', function(){
         auth()->guard('petugas')->logout();
         return redirect()->route('login');
-   })->name('.logout');
+    })->name('.logout');
     Route::get('daftar',RegisterPetugasController::class)->name('.daftar');
+    //petugas
     Route::middleware('auth:petugas')->group(function(){
         Route::get('dashboard',PetugasDashboardController::class)->name('.dashboard');
         Route::get('akun',PetugasDashboardController::class)->name('.user.akun');
-        Route::get('pengaduan_masuk',PetugasDashboardController::class)->name('.pengaduan.index');
+        Route::controller(KelolaPengaduanController::class)->group(function(){
+            Route::get('pengaduan/kelola','index')->name('.pengaduan.index');
+            Route::get('pengaduan/{id}/detail','show')->name('.pengaduan.detail'); 
+            Route::get('pengaduan/{id}/selesai','selesai')->name('.pengaduan.selesai'); 
+            Route::get('pengaduan/{id}/proses','prosess')->name('.pengaduan.proses'); 
+           Route::get('pengaduan/{id}/tanggapan/{idTanggapan}/delete','deleteTanggapan')->name('.pengaduan.tanggapan.delete');  
+        });
         Route::middleware('petugas_role')->group(function(){
             Route::get('laporan')->name('.laporan');
             Route::get('manage_petugas')->name('.manage_petugas');
