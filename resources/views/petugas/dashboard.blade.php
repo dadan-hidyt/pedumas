@@ -7,7 +7,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-12 pt-2">
 				<div class="card mb-2 bg-warning-800">
 					<div class="card-body">
-						<a href="{{ route('masyarakat.pengaduan.index') }}"
+						<a href="{{ route('petugas.pengaduan.index') }}"
 						class="d-flex flex-row align-items-center" target="_blank"
 						style="text-decoration: none !important;">
 						<div class="icon-stack display-3 flex-shrink-0">
@@ -19,7 +19,7 @@
 								Pengaduan Masuk
 							</strong>
 							<br>
-							{{ $count['semua_pengaduan'] ?? 0 }}
+							{{ $count['pengaduan'] ?? 0 }}
 						</div>
 					</a>
 				</div>
@@ -40,7 +40,7 @@
 							Masyarakat Terdaftar
 						</strong>
 						<br>
-						{{ $count['proses'] ?? 0 }}
+						{{ $count['masyarakat'] ?? 0 }}
 					</div>
 				</a>
 			</div>

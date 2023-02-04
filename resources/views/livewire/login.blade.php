@@ -2,10 +2,7 @@
  <!-- panel start -->
  <div id="panel-1" class="panel auth">
    <div class="panel-hdr">
-     <h2> LOGIN - PEDUMAS KAB.IFSU </h2>
-     <div class="panel-toolbar">
-       <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
-     </div>
+     <h3> LOGIN - {{ config('app.name') }} </h3>
    </div>
    <div class="panel-container show">
      <div class="panel-content">
@@ -19,14 +16,14 @@
         <form action="" wire:submit.prevent="login">
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" wire:model="user.username" class="form-control" id="username" name="username">
+            <input type="text" placeholder="Ketikan username anda!" wire:model="user.username" class="form-control" id="username" name="username">
             @error('user.username')
             <span class="form-title text-danger">{{$message}}</span>
             @enderror
           </div>
           <div class="form-group">
             <label for="password">password</label>
-            <input type="text" class="form-control" wire:model="user.password" id="password" name="password">
+            <input type="password" placeholder="Ketikan password anda" class="form-control" wire:model="user.password" id="password" name="password">
             @error('user.password')
             <span class="form-title text-danger">{{$message}}</span>
             @enderror

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Pengaduan;
+use App\Models\Masyarakat;
 class DashboardController extends Controller
 {
     public function cartData(){
@@ -29,9 +30,16 @@ class DashboardController extends Controller
             'bulan' => $months,
         ];
     }
+    public function counting(){
+        return [
+            'pengaduan' => Pengaduan::get()->count(),
+            'masyarakat' => Masyarakat::get()->count(),
+        ];
+    }
     public function __invoke(){
         $title = "Dashboard Petufas";
         $charts = $this->cartData();
-        return view("petugas.dashboard",compact('title','charts'));
+        $count = $this->counting();
+        return view("petugas.dashboard",compact('title','charts','count'));
     }
 }
