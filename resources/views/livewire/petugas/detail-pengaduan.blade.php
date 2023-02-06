@@ -2,33 +2,33 @@
     <h4>Detail Pengaduan</h4>
     <hr>
     <dt>
-     <dd><b>Pengadu</b>: {{ $pengaduan->masyarakat->nama }} |  {{ $pengaduan->masyarakat->nik }}</dd>
+     <dd><b>Pengadu</b>: {{ $data->masyarakat->nama }} |  {{ $data->masyarakat->nik }}</dd>
      <hr>
-     <dd><b>Judul Pengaduan</b>: {{ $pengaduan->judul_pengaduan }}</dd>
+     <dd><b>Judul Pengaduan</b>: {{ $data->judul_pengaduan }}</dd>
      <hr>
-     <dd><b>Tanggal</b>: {{ (new \Carbon\Carbon($pengaduan->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</dd>
+     <dd><b>Tanggal</b>: {{ (new \Carbon\Carbon($data->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</dd>
      <hr>
      <dd>
         <b>Attachment:</b>
         <br>
-        <img class="rounded border" width="200px" src="{{ asset('storage/'.$pengaduan->foto) }}" alt="">
+        <img class="rounded border" width="200px" src="{{ asset('storage/'.$data->foto) }}" alt="">
     </dd>
     <hr>
     <dd><b>ISI PENGADUAN</b>:
         <br>
         <div class="p-3 bg-white border rounded">
-            {{ $pengaduan->isi_laporan }}
+            {{ $data->isi_laporan }}
         </div>
     </dd>
     <dd>
         <b>TANGGAPAN: </b>
-        @if ($pengaduan->tanggapan()->count() > 0)
-        @foreach ($pengaduan->tanggapan as $element)
+        @if ($data->tanggapan()->count() > 0)
+        @foreach ($data->tanggapan as $element)
         <div class="border bg-info mb-3 rounded">
             <div style="font-size: 12px;" class="bg-info rounded shadow col-md-5 text-white p-2">
                 <i class="fal fa-user"></i> : {{ $element->petugas->nama_petugas }} ({{ $element->petugas->level }}) - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
                 @if (auth()->guard('petugas')->user()->id == $element->id_petugas)
-                :: <a onclick="return confirm('Apakah anda yakin?')" class="bg-danger p-1 rounded-circle" href="{{ route('petugas.pengaduan.tanggapan.delete',[$pengaduan->id,$element->id]) }}"><i class="fal text-white fa-trash"></i></a>
+                :: <a onclick="return confirm('Apakah anda yakin?')" class="bg-danger p-1 rounded-circle" href="{{ route('petugas.pengaduan.tanggapan.delete',[$data->id,$element->id]) }}"><i class="fal text-white fa-trash"></i></a>
                 @endif
             </div>
             <p class="p-3 text-white">
@@ -82,3 +82,11 @@
 </div>
 </div>
 </div>
+<script>
+    window.onload =function(){
+        window.addEventListener('successfuly',function(){
+            $('#exampleModal').modal('hide');
+            window.location.reload();
+        })
+    }
+</script>
