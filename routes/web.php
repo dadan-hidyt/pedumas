@@ -16,6 +16,7 @@ use App\Http\Controllers\Petugas\{
     PengaduanController as PetugasPengaduanController,
     AkunController as PetugasAkunController,
     KelolaPengaduanController,
+    PetugasController
 };
 
 /*
@@ -58,7 +59,7 @@ Route::name('petugas')->prefix('petugas')->group(function(){
         });
         Route::middleware('petugas_role')->group(function(){
             Route::get('laporan')->name('.laporan');
-            Route::get('manage_petugas')->name('.manage_petugas');
+           Route::get('manage_petugas',[PetugasController::class,'index'])->name('.manage-petugas');
         });
     });
 });

@@ -38,7 +38,7 @@
                     </a>
                </li>
                <li>
-                    <a href="{{ route('petugas.manage_petugas') }}" title="Laporan Saya" data-filter-tags="laporansaya" class=" waves-effect waves-themed" aria-expanded="false">
+                    <a href="{{ route('petugas.manage-petugas') }}" title="Manage Petugas" data-filter-tags="manage petugas" class=" waves-effect waves-themed" aria-expanded="false">
                          <i class="fal fa-users"></i>
                          <span class="nav-link-text" data-i18n="nav.webinstansi">Manage Petugas</span>
                     </a>

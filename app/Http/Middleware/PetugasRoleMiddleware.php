@@ -16,7 +16,7 @@ class PetugasRoleMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth('petugas')->user()->role !== 'admin') {
+        if (auth('petugas')->user()->level !== 'admin') {
            return redirect()->route('petugas.dashboard');
         }
         return $next($request);
