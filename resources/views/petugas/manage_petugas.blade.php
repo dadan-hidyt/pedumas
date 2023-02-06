@@ -51,13 +51,13 @@
 							<div class="badge badge-success">{{ $row->level }}</div>
 						</td>
 						<td>
-							<a href="{{route('masyarakat.pengaduan.detail',$row->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
+							{{-- <a href="{{route('petugas.manage-petugas.detail',$row->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
 								<i class="fal fa-eye"></i>
-							</a>
-							<a href="{{route('masyarakat.pengaduan.edit',$row->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
+							</a> --}}
+							<a href="{{route('petugas.manage-petugas.edit',$row->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
 								<i class="fal fa-edit"></i>
 							</a>
-							<a onclick="return confirm('Apakah anda yakin?')" href="{{ route('masyarakat.pengaduan.delete',$row->id) }}" class="btn btn-danger btn-sm btn-icon" title="delete">
+							<a onclick="return confirm('Apakah anda yakin?')" href="{{ route('petugas.manage-petugas.delete',$row->id) }}" class="btn btn-danger btn-sm btn-icon" title="delete">
 								<i class="fal fa-trash"></i>
 							</a>
 						</td>

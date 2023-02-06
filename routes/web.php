@@ -19,16 +19,7 @@ use App\Http\Controllers\Petugas\{
     PetugasController
 };
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 Route::view('/','landing_page');
 Route::get('/login', LoginController::class)->name('login');
 Route::get('/masyarakat/daftar', RegisterController::class)->name('daftar');
@@ -55,11 +46,15 @@ Route::name('petugas')->prefix('petugas')->group(function(){
             Route::get('pengaduan/{id}/detail','show')->name('.pengaduan.detail'); 
             Route::get('pengaduan/{id}/selesai','selesai')->name('.pengaduan.selesai'); 
             Route::get('pengaduan/{id}/proses','prosess')->name('.pengaduan.proses'); 
-           Route::get('pengaduan/{id}/tanggapan/{idTanggapan}/delete','deleteTanggapan')->name('.pengaduan.tanggapan.delete');  
+            Route::get('pengaduan/{id}/tanggapan/{idTanggapan}/delete','deleteTanggapan')->name('.pengaduan.tanggapan.delete');  
         });
         Route::middleware('petugas_role')->group(function(){
             Route::get('laporan')->name('.laporan');
-           Route::get('manage_petugas',[PetugasController::class,'index'])->name('.manage-petugas');
+            Route::controller(PetugasController::class)->name('.manage-petugas')->group(function(){
+             Route::get('manage_petugas',[PetugasController::class,'index'])->name('.index');
+             Route::get('petugas/{id}/edit',[PetugasController::class,'edit'])->name('.edit');
+             Route::get('petugas/{id}/delete',[PetugasController::class,'delete'])->name('.delete');
+         });
         });
     });
 });

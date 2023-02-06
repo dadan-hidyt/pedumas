@@ -8,7 +8,6 @@
                 <div class="d-flex align-items-center container p-0">
                     <div class="page-logo width-mobile-auto m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9">
                         <a href="" class="page-logo-link press-scale-down d-flex align-items-center">
-                            {{-- <img src="" alt="Rembang Dashboard" aria-roledescription="logo"> --}}
                             <span class="page-logo-text mr-1">{{ config('app.name') }}</span>
                         </a>
                     </div>
@@ -25,7 +24,6 @@
                                     Website pengaduan masyarakat adalah platform daring yang ditujukan untuk memfasilitasi masyarakat dalam mengajukan keluhan, pengaduan, ataupun saran terkait masalah yang dialami. Website ini bertujuan untuk mempermudah proses pengaduan dan memastikan bahwa setiap masalah yang disampaikan akan diterima dan ditindaklanjuti oleh pihak yang berwajib.
                                 </small>
                             </h2>
-
                             @if (auth()->guard('petugas')->check())
                             <a class="btn btn-primary" href="{{ route('petugas.dashboard') }}">Dashboard Petugas</a>
                             @elseif (auth()->guard('masyarakat')->check())
