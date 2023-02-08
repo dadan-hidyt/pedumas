@@ -16,7 +16,7 @@ class PengaduanController extends Controller
     public function index()
     {
      $title = "Semua Pengaduan";
-     $pengaduan = Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->get();
+     $pengaduan = Pengaduan::where('nik',Auth::guard('masyarakat')->user()->nik)->withCount(['tanggapan'])->get();
      return view('masyarakat.semua_pengaduan', compact('title','pengaduan'));
  }
 
@@ -38,8 +38,8 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        $data = Pengaduan::find($id);
-        if ($data->nik == \Auth::guard('masyarakat')->user()->nik) {
+        $data = Pengaduan::withCount(['tanggapan'])->with(['tanggapan'])->find($id);
+        if ($data->nik == auth()->guard('masyarakat')->user()->nik) {
             $title = "Detail Pengaduan";
             return view('masyarakat.detail_pengaduan',compact('data','title'));
         }

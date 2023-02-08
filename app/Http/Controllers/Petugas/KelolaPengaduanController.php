@@ -10,11 +10,11 @@ class KelolaPengaduanController extends Controller
 {
     public function index(){
         $title = "Kelola Pengaduan";
-        $pengaduan = Pengaduan::with('masyarakat')->get();
+        $pengaduan = Pengaduan::withCount(['masyarakat','tanggapan'])->get();
         return view('petugas.kelola_pengaduan',compact('title','pengaduan'));
     }
     public function show(Request $request,$id){
-        $pengaduan = Pengaduan::with('masyarakat')->find($id);
+        $pengaduan = Pengaduan::with(['masyarakat','tanggapan'])->withCount(['masyarakat','tanggapan'])->find($id);
         $title = "Detail pengaduan";
         return view('petugas.detail_pengaduan',compact('pengaduan','title'));
     }

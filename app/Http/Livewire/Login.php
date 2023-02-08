@@ -12,6 +12,10 @@ class Login extends Component
         'user.username' => 'required',
         'user.password' => 'required',
     ];
+    protected $validationAttributes = array(
+        'user.username' => "Username",
+        'user.password' =>'password'
+    );
     public function login()
     {
         $this->validate();

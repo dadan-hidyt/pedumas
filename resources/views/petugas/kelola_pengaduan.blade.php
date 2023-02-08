@@ -51,8 +51,8 @@
 								@endif
 							</td>
 							<td>
-								@if ($element->tanggapan()->count() > 0)
-									<span class="badge badge-primary">Sudah Di tanggapi</span>
+								@if ($element->tanggapan_count > 0)
+									<span class="badge badge-primary">({{$element->tanggapan_count}}) Tanggapan</span>
 									@else
 									<span class="badge badge-danger">Belum Di tanggapi</span>
 								@endif

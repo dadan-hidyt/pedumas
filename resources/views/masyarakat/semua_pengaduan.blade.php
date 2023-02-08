@@ -58,7 +58,7 @@
 						</td>
 						
 						<td>
-							@if ($element->tanggapan->count() >= 1)
+							@if ($element->tanggapan_count >= 1)
 							<a href="{{route('masyarakat.pengaduan.detail',$element->id)}}" title="Detail">
 								<i class="fal fa-eye"></i> Lihat Tanggapan
 							</a>

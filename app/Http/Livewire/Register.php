@@ -13,6 +13,13 @@ class Register extends Component
         'user.password' => 'required',
         'user.username' => 'required',
     ];
+    protected $validationAttributes = [
+        'user.nama' => 'Nama',
+        'user.nik' => 'Nik',
+        'user.password' => 'Password',
+        'user.username' => 'Username',
+    ];
+    
     public $user;
     //peorses daftar
     public function daftar(){

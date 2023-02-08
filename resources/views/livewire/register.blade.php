@@ -15,29 +15,29 @@
     @endif
     <form action="" wire:submit.prevent="daftar">
       <div class="form-group">
-          <label for="nik">nik</label>
-          <input type="text" wire:model="user.nik" class="form-control" id="nik" name="nik">
+          <label for="nik">Nik</label>
+          <input type="text" wire:model.defer="user.nik" class="form-control" id="nik" name="nik">
           @error('user.nik')
           <span class="form-title text-danger">{{$message}}</span>
           @enderror
       </div>
       <div class="form-group">
-        <label for="nama">nama</label>
-        <input type="text" wire:model="user.nama" class="form-control" id="nama" name="nama">
+        <label for="nama">Nama</label>
+        <input type="text" wire:model.defer="user.nama" class="form-control" id="nama" name="nama">
         @error('user.nama')
         <span class="form-title text-danger">{{$message}}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="username">username</label>
-        <input type="text" wire:model="user.username" class="form-control" id="username" name="username">
+        <label for="username">Username</label>
+        <input type="text" wire:model.defer="user.username" class="form-control" id="username" name="username">
         @error('user.username')
         <span class="form-title text-danger">{{$message}}</span>
         @enderror
   </div>
   <div class="form-group">
-    <label for="password">password</label>
-    <input type="text" class="form-control" wire:model="user.password" id="password" name="password">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" wire:model.defer="user.password" id="password" name="password">
     @error('user.password')
     <span class="form-title text-danger">{{$message}}</span>
     @enderror

@@ -16,28 +16,28 @@
     <form action="" wire:submit.prevent="daftar">
       <div class="form-group">
           <label for="nama_petugas">Nama Petugas</label>
-          <input type="text" wire:model="user.nama_petugas" class="form-control" id="nama_petugas" name="nama_petugas">
+          <input type="text" wire:model.defer="user.nama_petugas" class="form-control" id="nama_petugas" name="nama_petugas">
           @error('user.nama_petugas')
           <span class="form-title text-danger">{{$message}}</span>
           @enderror
       </div>
       <div class="form-group">
         <label for="no_telp">Nomor Telepon</label>
-        <input type="text" class="form-control" wire:model="user.no_telp" id="no_telp" name="no_telp">
+        <input type="text" class="form-control" wire:model.defer="user.no_telp" id="no_telp" name="no_telp">
         @error('user.no_telp')
         <span class="form-title text-danger">{{$message}}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="username">username</label>
-        <input type="text" wire:model="user.username" class="form-control" id="username" name="username">
+        <label for="username">Username</label>
+        <input type="text" wire:model.defer="user.username" class="form-control" id="username" name="username">
         @error('user.username')
         <span class="form-title text-danger">{{$message}}</span>
         @enderror
     </div>
     <div class="form-group">
-        <label for="password">password</label>
-        <input type="text" wire:model="user.password" class="form-control" id="password" name="password">
+        <label for="password">Password</label>
+        <input type="text" wire:model.defer="user.password" class="form-control" id="password" name="password">
         @error('user.password')
         <span class="form-title text-danger">{{$message}}</span>
         @enderror

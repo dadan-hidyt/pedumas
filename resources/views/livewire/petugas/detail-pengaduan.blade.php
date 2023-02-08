@@ -22,7 +22,7 @@
     </dd>
     <dd>
         <b>TANGGAPAN: </b>
-        @if ($data->tanggapan()->count() > 0)
+        @if ($data->tanggapan_count > 0)
         @foreach ($data->tanggapan as $element)
         <div class="border bg-info mb-3 rounded">
             <div style="font-size: 12px;" class="bg-info rounded shadow col-md-5 text-white p-2">
