@@ -14,6 +14,12 @@ return [
 	'kintil',
 	'asu',
 	'asu',
-	'setan'
+	'setan',
+	'memek',
+	'kontol',
+	'anjink',
+	'babi',
+	'setan',
+	'telaso',
 ];
 ?>

@@ -3,12 +3,12 @@
 @section('content')
 <div class="page-wrapper">
     <div class="page-inner bg-brand-gradient">
-        <div class="page-content-wrapper bg-transparent m-0">
-            <div class="height-10 w-100 shadow-lg px-4 bg-brand-gradient">
+        <div class="page-content bg-transparent m-0">
+            <div class="height-10 w-100 shadow-sm px-4 bg-brand-gradient">
                 <div class="d-flex align-items-center container p-0">
-                    <div class="page-logo width-mobile-auto m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9">
+                    <div style="border-bottom: 1px solid transparent!important;"  class="page-logo m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9">
                         <a href="" class="page-logo-link press-scale-down d-flex align-items-center">
-                            <span class="page-logo-text mr-1">{{ config('app.name') }}</span>
+                            <b class="page-logo-text mr-1">{{ config('app.name') }}</b>
                         </a>
                     </div>
                 </div>

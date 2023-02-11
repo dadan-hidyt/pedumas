@@ -12,6 +12,7 @@ class Masyarakat extends Authenticatable
     protected $guard = 'masyarakat';
     protected $table = 'masyarakat';
     protected $primaryKey = 'nik';
+    public $timestamps = false;
     protected $fillable = array(
         'nik',
         'nama',
@@ -22,4 +23,13 @@ class Masyarakat extends Authenticatable
         'password',
         'remember_token',
     );
+    public function pengaduan(){
+        return $this->hasMany(\App\Models\Pengaduan::class,'nik');
+    }
+    public static function boot(){
+        parent::boot();
+        static::deleting(function($masyarakat){
+            $masyarakat->pengaduan()->delete();
+        });
+    }
 }

@@ -15,10 +15,10 @@ class BuatPengaduan extends Component
         'pengaduan_poto' => 'image|required|max:1024',
         'pengaduan.judul_pengaduan' => 'required',
         'pengaduan.isi_laporan' => 'required',
-        'pengaduan.tgl_pengaduan' => 'required',
     );
     public function simpan(){
         $this->validate();
+        $this->pengaduan['tgl_pengaduan'] = \Carbon\Carbon::now();
         $this->pengaduan['foto'] = 'foto_pengaduan/'.Auth::guard()->user()->username."/".$this->pengaduan_poto->getClientOriginalName();
         if (cariKataDilarang(text:$this->pengaduan['isi_laporan'],dataset:config('sensor_kata')) >= 3) {
             return session()->flash('gagal',"Isi pengaduan anda mengandung kata kata kotor! Silahkan gunakan kata2 yang sopan.");

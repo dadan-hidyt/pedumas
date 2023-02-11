@@ -14,6 +14,7 @@ use App\Http\Controllers\Masyarakat\{
 use App\Http\Controllers\Petugas\{
     DashboardController as PetugasDashboardController,
     PengaduanController as PetugasPengaduanController,
+    ManageMasyarakatController,
     AkunController as PetugasAkunController,
     KelolaPengaduanController,
     PetugasController
@@ -50,10 +51,18 @@ Route::name('petugas')->prefix('petugas')->group(function(){
         });
         Route::middleware('petugas_role')->group(function(){
             Route::get('laporan')->name('.laporan');
+            Route::controller(ManageMasyarakatController::class)->name('.manage-masyarakat')->group(function(){
+                Route::get('manage_masyarakat','index')->name('.index');
+                Route::get('masyarakat/tambah','add')->name('.add');
+                Route::get('masyarakat/{id}/edit','edit')->name('.edit');
+                Route::get('masyarakat/{id}/delete','delete')->name('.delete');
+            });
             Route::controller(PetugasController::class)->name('.manage-petugas')->group(function(){
+            //manage petugas
              Route::get('manage_petugas',[PetugasController::class,'index'])->name('.index');
              Route::get('petugas/{id}/edit',[PetugasController::class,'edit'])->name('.edit');
              Route::get('petugas/{id}/delete',[PetugasController::class,'delete'])->name('.delete');
+             Route::get('petugas/add',[PetugasController::class,'add'])->name('.add');
          });
         });
     });

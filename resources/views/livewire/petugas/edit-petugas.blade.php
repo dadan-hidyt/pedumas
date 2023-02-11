@@ -1,5 +1,5 @@
 <div class="container-fluid">
-   <div class="row d-flex justify-content-between">
+ <div class="row d-flex justify-content-between">
     <div class="col-md-6 border  rounded bg-white p-4">
         <h2>{{ __('Edit Petugas') }}</h2>
         <hr>
@@ -11,11 +11,11 @@
             </div>
             <div class="form-group">
                 <label for="name">Username</label>
-                <input readonly type="text" wire:model.defer="dataPetugas.username" value="{{ $dataPetugas['username'] ?? '' }}" class="form-control">
+                <input type="text" wire:model.defer="dataPetugas.username" value="{{ $dataPetugas['username'] ?? '' }}" class="form-control">
             </div>
             <div class="form-group">
                 <label for="name">No Hp</label>
-                <input readonly type="text" wire:model.defer="dataPetugas.no_telp" value="{{ $dataPetugas['no_telp'] ?? '' }}" class="form-control">
+                <input type="text" wire:model.defer="dataPetugas.no_telp" value="{{ $dataPetugas['no_telp'] ?? '' }}" class="form-control">
             </div>
             <div class="form-group">
                 <label for="level">level</label>
@@ -64,12 +64,10 @@
 </div>
 </div>
 <script>
-    window.onload = function(){
-        window.addEventListener('password_hasben_changed', function(){
-            alert("Password Berhasil di update");
-        });
-        window.addEventListener('petugas_hasben_updated', function(){
-            alert("Petugas Berhasil di update");
-        })
-    }
+    window.addEventListener('password_hasben_changed', function(){
+        alert("Password Berhasil di update");
+    });
+    window.addEventListener('petugas_hasben_edited', function(){
+        alert("Data Petugas berhasil di update");
+    })
 </script>

@@ -26,7 +26,7 @@
         @foreach ($data->tanggapan as $element)
         <div class="border bg-info mb-3 rounded">
             <div style="font-size: 12px;" class="bg-info rounded shadow col-md-5 text-white p-2">
-                <i class="fal fa-user"></i> : {{ $element->petugas->nama_petugas }} ({{ $element->petugas->level }}) - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
+                <i class="fal fa-user"></i> : {{ $element->petugas->nama_petugas ?? 'admin' }} ({{ $element->petugas->level ?? 'administrator'}}) - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
                 @if (auth()->guard('petugas')->user()->id == $element->id_petugas)
                 :: <a onclick="return confirm('Apakah anda yakin?')" class="bg-danger p-1 rounded-circle" href="{{ route('petugas.pengaduan.tanggapan.delete',[$data->id,$element->id]) }}"><i class="fal text-white fa-trash"></i></a>
                 @endif

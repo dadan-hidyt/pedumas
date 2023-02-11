@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
 	<div class="col-md-6">
-		<div class="bg-white p-3 rounded">
+		<div class="bg-white p-3 border rounded">
 			<h1>Info Akun & Update</h1>
 			@error('success')
 			<div class="alert alert-success">{{$message}}</div>

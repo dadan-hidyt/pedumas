@@ -21,6 +21,7 @@ class EditPengaduan extends Component
     }
     public function simpan(){
         $this->validate();
+        $this->pengaduan['tgl_pengaduan'] = \Carbon\Carbon::now();
         $this->pengaduan['foto'] = $this->pengaduan_poto ?
         'foto_pengaduan/'.Auth::guard()->user()->username."/".$this->pengaduan_poto->getClientOriginalName() 
         : $this->pengaduan['foto'];

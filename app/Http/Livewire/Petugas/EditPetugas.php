@@ -17,13 +17,17 @@ class EditPetugas extends Component
         'password_setting.password' => 'Password',
         'password_setting.password_confirmation' => 'Ulangi Password',
     );
+    //update petugas
     public function updatePetugas(){
         $this->petugas->nama_petugas = $this->dataPetugas['nama_petugas'];
         $this->petugas->no_telp = $this->dataPetugas['no_telp'];
         $this->petugas->username = $this->dataPetugas['username'];
         $this->petugas->level = $this->dataPetugas['level'];
         if ($this->petugas->save()) {
-            $this->dispatchBrowserEvent("petugas_hasben_changed");
+            $this->dispatchBrowserEvent("petugas_hasben_edited");
+        }else{
+            $this->dispatchBrowserEvent("petugas_hasben_edited");
+
         }
     }
     public function updatePassword(){

@@ -17,6 +17,7 @@
     <!-- base css -->
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets') }}/css/vendors.bundle.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets') }}/css/app.bundle.css">
+    <link rel="stylesheet" media="screen, print" href="{{ asset('assets') }}/css/skins/skin-master.css">
     <link rel="stylesheet" media="screen, print" href="{{ asset('assets') }}/css/datagrid/datatables/datatables.bundle.css">
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets') }}/img/logo.png">
@@ -29,56 +30,7 @@
     @livewireStyles
 </head>
 
-<body class="mod-bg-3">
-    <!-- DOC: script to save and load page settings -->
-    <script>
-        /**
-         *	This script should be placed right after the body tag for fast execution
-         *	Note: the script is written in pure javascript and does not depend on thirdparty library
-         **/
-        'use strict';
-
-        var classHolder = document.getElementsByTagName("BODY")[0],
-            /**
-             * Load from localstorage
-             **/
-        themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
-        {},
-        themeURL = themeSettings.themeURL || '',
-        themeOptions = themeSettings.themeOptions || '';
-        /**
-         * Load theme options
-         **/
-        if (themeSettings.themeOptions) {
-            classHolder.className = themeSettings.themeOptions;
-        }
-        if (themeSettings.themeURL && !document.getElementById('mytheme')) {
-            var cssfile = document.createElement('link');
-            cssfile.id = 'mytheme';
-            cssfile.rel = 'stylesheet';
-            cssfile.href = themeURL;
-            document.getElementsByTagName('head')[0].appendChild(cssfile);
-        }
-        /**
-         * Save to localstorage
-         **/
-        var saveSettings = function() {
-            themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item) {
-                return /^(nav|header|mod|display)-/i.test(item);
-            }).join(' ');
-            if (document.getElementById('mytheme')) {
-                themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
-            };
-            localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
-        }
-        /**
-         * Reset settings
-         **/
-        var resetSettings = function() {
-            localStorage.setItem("themeSettings", "");
-        }
-    </script>
-    <!-- BEGIN Page Wrapper -->
+<body class="mod-bg-1 mod-main-boxed mod-clean-pages mod-nav-link  mod-skin-dark header-function-fixed  nav-function-fixed">
     @guest
     @yield('content')
     @else
@@ -99,23 +51,23 @@
               <!-- BEGIN Page Content -->
               <!-- the #js-page-content id is needed for some plugins to initialize -->
               <main id="js-page-content" role="main" class="page-content">
-                 @yield('content')
-             </main>
-             <!-- END Page Content -->
-             <!-- this overlay is activated only when mobile menu is triggered -->
-             <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
-             @if (Request()->route()->getPrefix() === '/petugas')
-             @include('layouts.partials.petugas.footer')
-             @else
-             @include('layouts.partials.masyarakat.footer')
-             @endif             <!-- BEGIN Shortcuts -->
-         </div>
-     </div>
- </div>
- <!-- END Page Wrapper -->
- <!-- BEGIN Quick Menu -->
- <!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
- <nav class="shortcut-menu d-none d-sm-block">
+               @yield('content')
+           </main>
+           <!-- END Page Content -->
+           <!-- this overlay is activated only when mobile menu is triggered -->
+           <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div>
+           @if (Request()->route()->getPrefix() === '/petugas')
+           @include('layouts.partials.petugas.footer')
+           @else
+           @include('layouts.partials.masyarakat.footer')
+           @endif             <!-- BEGIN Shortcuts -->
+       </div>
+   </div>
+</div>
+<!-- END Page Wrapper -->
+<!-- BEGIN Quick Menu -->
+<!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
+<nav class="shortcut-menu d-none d-sm-block">
     <input type="checkbox" class="menu-open" name="menu-open" id="menu_open" />
     <label for="menu_open" class="menu-open-button ">
         <span class="app-shortcut-icon d-block"></span>
@@ -180,7 +132,7 @@ aria-hidden="true">
 <script src="{{ asset('assets') }}/js/app.bundle.js"></script>
 <script src="{{ asset('assets') }}/js/datagrid/datatables/datatables.bundle.js"></script>
 <script src="{{ asset('assets') }}/js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js"></script>
+<script src="{{ asset('assets') }}/js/chart.min.js"></script>
 @stack('javascript')
 @livewireScripts
 </body>

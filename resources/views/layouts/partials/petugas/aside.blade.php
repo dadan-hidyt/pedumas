@@ -36,6 +36,12 @@
                          <i class="fal fa-file"></i>
                          <span class="nav-link-text" data-i18n="nav.webinstansi">Generate Laporan</span>
                     </a>
+               </li> 
+                <li>
+                    <a href="{{ route('petugas.manage-masyarakat.index') }}" title="Laporan Saya" data-filter-tags="kelola Masyarakat" class="waves-effect waves-themed" aria-expanded="false">
+                         <i class="fal fa-user"></i>
+                         <span class="nav-link-text" data-i18n="nav.webinstansi">Kelola Masyarakat</span>
+                    </a>
                </li>
                <li>
                     <a href="{{ route('petugas.manage-petugas.index') }}" title="Manage Petugas" data-filter-tags="manage petugas" class=" waves-effect waves-themed" aria-expanded="false">

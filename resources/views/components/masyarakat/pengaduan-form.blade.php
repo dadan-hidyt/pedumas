@@ -23,29 +23,27 @@
             @endif
             <form wire:submit.prevent="simpan">
                 <div class="form-group">
-                    <label for="tanggal">Tanggal</label>
-                    <input wire:model="pengaduan.tgl_pengaduan" type="date" class="form-control">
-                    @error('pengaduan.tgl_pengaduan')
-                    <i class="text-danger"> {{ $message }}</i>
-                    @enderror
-                </div>
-                <div class="form-group">
                     <label for="judul_pengaduan">judul pengaduan</label>
-                    <input wire:model="pengaduan.judul_pengaduan" type="text" class="form-control">
+                    <input wire:model.defer="pengaduan.judul_pengaduan" type="text" class="form-control">
                     @error('pengaduan.judul_pengaduan')
                     <i class="text-danger"> {{ $message }}</i>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="isi">Isi Laporan</label>
-                    <textarea  wire:model="pengaduan.isi_laporan" id="isi_laporan" cols="30" rows="10" class="form-control"></textarea>
+                    <textarea  wire:model.defer="pengaduan.isi_laporan" id="isi_laporan" cols="30" rows="10" class="form-control"></textarea>
                     @error('pengaduan.isi_laporan')
                     <i class="text-danger"> {{ $message }}</i>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto</label>
-                    <input type="file" wire:model="pengaduan_poto" class="form-control" name="foto" id="">
+                    <input type="file" wire:model.defer="pengaduan_poto" class="form-control" name="foto" id="foto">
+
+                    <div id="img-preview">
+                        
+                    </div>
+
                     <div wire:loading wire:target="pengaduan_poto">Mengupload...</div>
                     @error('pengaduan_poto')
                     <i class="text-danger"> {{ $message }}</i>

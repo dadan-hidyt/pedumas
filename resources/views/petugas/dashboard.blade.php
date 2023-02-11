@@ -7,7 +7,6 @@
 			@livewire('petugas.dashboard-count-statistik', ['count'=>$count])
 		</div>
 		<hr>
-
 		<div class="bg-white col-md-7 rounded border p-3">
 			<canvas id="statistik_pengaduan"></canvas>
 		</div>

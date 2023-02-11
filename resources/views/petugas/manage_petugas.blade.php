@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<div class="mt-2 mb-4">
+	<a href="{{ route('petugas.manage-petugas.add') }}" class="btn btn-success" id="tambah_pengaduan">Tambah Petugas</a>
+</div>
 <div id="panel-1" class="panel">
 	<div class="panel-hdr">
 		<h2>
@@ -50,7 +53,7 @@
 						<td>
 							<div class="badge badge-success">{{ $row->level }}</div>
 						</td>
-						<td>
+						<td class="text-center">
 							{{-- <a href="{{route('petugas.manage-petugas.detail',$row->id)}}" class="btn btn-success btn-sm btn-icon" title="Detail">
 								<i class="fal fa-eye"></i>
 							</a> --}}

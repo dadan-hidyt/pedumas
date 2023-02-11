@@ -26,7 +26,7 @@
 			@foreach ($data->tanggapan as $element)
 			<div class="border bg-info mb-3 rounded">
 				<div style="font-size: 12px;" class="bg-info rounded shadow col-md-5 text-white p-2">
-					<i class="fal fa-user"></i> : {{ $element->petugas->nama_petugas }} ({{ $element->petugas->level }}) - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
+					<i class="fal fa-user"></i> : {{ $element->petugas?->nama_petugas ?? 'unknown' }} ({{ $element->petugas?->level ?? 'unknown' }}) - <i class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
 				</div>
 				<p class="p-3 text-white">
 					{{ $element->tanggapan }}

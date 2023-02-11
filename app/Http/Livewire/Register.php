@@ -3,8 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Auth;
 use \App\Models\Masyarakat;
+
 class Register extends Component
 {
     protected $rules = [
@@ -19,10 +19,13 @@ class Register extends Component
         'user.password' => 'Password',
         'user.username' => 'Username',
     ];
-    
+
     public $user;
-    //peorses daftar
-    public function daftar(){
+    /**
+     * Proses daftar
+     */
+    public function daftar()
+    {
         $this->validate();
         $checkUsername = Masyarakat::find($this->user['username']);
         $checkNik = Masyarakat::find($this->user['nik']);
@@ -30,10 +33,10 @@ class Register extends Component
             $this->user['password'] = password_hash($this->user['password'], PASSWORD_DEFAULT);
             Masyarakat::insert($this->user);
             $this->user = [];
-            session()->flash('success_daftar','Pendaftaran berhasil silahkan login!');
+            session()->flash('success_daftar', 'Pendaftaran berhasil silahkan login!');
             return redirect()->intended('login');
-        }else{
-            return session()->flash('gagal',"Sepertinya nik atau username sudah ada yang mengunakan");
+        } else {
+            return session()->flash('gagal', "Sepertinya nik atau username sudah ada yang mengunakan");
         }
     }
     public function render()

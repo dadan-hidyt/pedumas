@@ -5,5 +5,4 @@ function cariKataDilarang(array $dataset = [], string $text){
 	}
 	return 0;
 }
-
 ?>

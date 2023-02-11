@@ -18,16 +18,20 @@ class PetugasController extends Controller
     }
     public function edit(Request $request,$id = null){
         abort_if($id === null, '404');
-        if ($petugas = Petugas::find($id)->first()) {
+        if ($petugas = Petugas::find($id)) {
             $title = "Edit Petugas";
             return view('petugas.edit_petugas',compact('petugas','title'));
         }else{
             return back();
         }
     }
+    public function add(){
+        $title = "Tambah Petugas";
+        return view('petugas.tambah_petugas',compact('title'));
+    }
     public function delete(Request $request, $id = null){
         abort_if($id === null,'404');
-        if (Petugas::find($id)->first()) {
+        if (Petugas::find($id)) {
             Petugas::destroy($id);
             return back();
         }
