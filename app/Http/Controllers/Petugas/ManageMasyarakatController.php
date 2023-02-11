@@ -18,6 +18,10 @@ class ManageMasyarakatController extends Controller
         $title = "Edit Masyarakat";
         return view('petugas.edit_mayarakat',compact('masyarakat','title'));
     }
+    public function add(){
+        $title = "Tambah Petugas";
+        return view('petugas.tambah_masyarakat',compact('title'));
+    }
     public function delete(Request $request,$nik){
         $finder = Masyarakat::findOrFail($nik);
         if($finder->delete($nik)){

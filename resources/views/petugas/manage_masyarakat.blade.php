@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<div class="mt-3 mb-3">
+	<a href="{{ route('petugas.manage-masyarakat.add') }}" class="btn btn-success">Tambah</a>
+</div>
 <div id="panel-1" class="panel">
 	<div class="panel-hdr">
 		<div class="panel-toolbar">
