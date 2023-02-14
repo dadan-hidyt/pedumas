@@ -37,7 +37,7 @@
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="text" class="form-control" wire:model.defer="user.password" id="password" name="password">
+    <input type="password" class="form-control" wire:model.defer="user.password" id="password" name="password">
     @error('user.password')
     <span class="form-title text-danger">{{$message}}</span>
     @enderror

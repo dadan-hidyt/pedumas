@@ -14,11 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\Petugas::create([
+            'nama_petugas' => 'admin',
+            'username' => 'admin',
+            'password' => password_hash('admin',PASSWORD_DEFAULT),
+            'verification' => "Y",
+            'no_telp' => '088223837165',
+            'level' => 'admin',
+        ]);
+        
+        \App\Models\Petugas::create([
+            'nama_petugas' => 'Petugas',
+            'username' => 'petugas',
+            'password' => password_hash('petugas',PASSWORD_DEFAULT),
+            'verification' => "Y",
+            'no_telp' => '088223837165',
+            'level' => 'petugas',
+        ]);
     }
 }

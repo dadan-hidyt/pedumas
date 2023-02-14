@@ -40,6 +40,17 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="Verification">Verification</label>
+                <div class="checbox">
+                    <input wire:model.defer="petugas.verification" @checked(true) type="radio" name="verification" value="Y" id="YA">
+                    <label for="YA">YA</label>
+                </div>
+                <div class="checbox">
+                    <input wire:model.defer="petugas.verification"  type="radio" name="verification" value="N" id="NO">
+                    <label for="NO">NO</label>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="level">Level</label>
                 <select wire:model.lazy="petugas.level" class="form-control" name="level" id="level">
                     <option value="petugas">Petugas</option>

@@ -23,6 +23,7 @@ class EditPetugas extends Component
         $this->petugas->no_telp = $this->dataPetugas['no_telp'];
         $this->petugas->username = $this->dataPetugas['username'];
         $this->petugas->level = $this->dataPetugas['level'];
+        $this->petugas->verification = $this->dataPetugas['verification'];
         if ($this->petugas->save()) {
             $this->dispatchBrowserEvent("petugas_hasben_edited");
         }else{

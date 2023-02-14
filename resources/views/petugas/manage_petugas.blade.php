@@ -26,6 +26,7 @@
 						<th>Nama</th>
 						<th>No HP</th>
 						<th>Username</th>
+						<th>Verification</th>
 						<th>Level</th>
 						<th>action</th>
 					</tr>
@@ -49,7 +50,9 @@
                                ( KAMU )
 							@endif
 						</td>
-						
+						<td>
+							{{ $row->verification === "Y" ? "true" : 'false' }}
+						</td>
 						<td>
 							<div class="badge badge-success">{{ $row->level }}</div>
 						</td>

@@ -20,7 +20,6 @@ use App\Http\Controllers\Petugas\{
     PetugasController
 };
 
-
 Route::view('/','landing_page');
 Route::get('/login', LoginController::class)->name('login');
 Route::get('/masyarakat/daftar', RegisterController::class)->name('daftar');

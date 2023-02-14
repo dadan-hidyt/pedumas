@@ -121,6 +121,9 @@
           <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
           <i class="float-right text-muted fw-n">F11</i>
         </a>
+        <a href="{{ route('petugas.logout') }}" class="dropdown-item">
+          <span data-i18n="drpdwn.logout">Logout</span>
+        </a>
       </div>
     </div>
   </div>

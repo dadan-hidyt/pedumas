@@ -18,6 +18,17 @@
                 <input type="text" wire:model.defer="dataPetugas.no_telp" value="{{ $dataPetugas['no_telp'] ?? '' }}" class="form-control">
             </div>
             <div class="form-group">
+                <label for="Verification">Verification</label>
+                <div class="checbox">
+                    <input wire:model.defer="dataPetugas.verification" @checked(true) type="radio" name="verification" value="Y" id="YA">
+                    <label for="YA">YA</label>
+                </div>
+                <div class="checbox">
+                    <input wire:model.defer="dataPetugas.verification" type="radio" name="verification" value="N" id="NO">
+                    <label for="NO">NO</label>
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="level">level</label>
                 <select wire:model.defer="dataPetugas.level" class="form-control" id="level">
                     @foreach ($role as $rol)
