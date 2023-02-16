@@ -37,7 +37,7 @@
 
                  @if (auth()->guard('petugas')->user()->level === 'admin')
                      <li>
-                         <a href="{{ route('petugas.laporan') }}" title="Laporan Saya" data-filter-tags="laporansaya"
+                         <a href="{{ route('petugas.laporan.index') }}" title="Laporan Saya" data-filter-tags="laporansaya"
                              class=" waves-effect waves-themed" aria-expanded="false">
                              <i class="fal fa-file"></i>
                              <span class="nav-link-text" data-i18n="nav.webinstansi">Generate Laporan</span>

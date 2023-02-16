@@ -17,7 +17,8 @@ use App\Http\Controllers\Petugas\{
     ManageMasyarakatController,
     AkunController as PetugasAkunController,
     KelolaPengaduanController,
-    PetugasController
+    PetugasController,
+    LaporanController,
 };
 
 Route::view('/','landing_page');
@@ -49,7 +50,10 @@ Route::name('petugas')->prefix('petugas')->group(function(){
             Route::get('pengaduan/{id}/tanggapan/{idTanggapan}/delete','deleteTanggapan')->name('.pengaduan.tanggapan.delete');  
         });
         Route::middleware('petugas_role')->group(function(){
-            Route::get('laporan')->name('.laporan');
+            Route::controller(LaporanController::class)->name('.laporan')->group(function(){
+                Route::get('laporan','index')->name('.index');
+                Route::get('generate','generate')->name('.generate');
+            });
             Route::controller(ManageMasyarakatController::class)->name('.manage-masyarakat')->group(function(){
                 Route::get('manage_masyarakat','index')->name('.index');
                 Route::get('masyarakat/tambah','add')->name('.add');
