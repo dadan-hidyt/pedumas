@@ -62,7 +62,7 @@
 									<i class="fal fa-eye"></i>
 								</a>
 								<a href="{{route('petugas.pengaduan.proses',$element->id)}}" class="btn btn-success btn-sm btn-icon" title="proses">
-									<i class="fal fa-spin"></i>
+									<i class="fal fa-times"></i>
 								</a>
 								<a onclick="return confirm('Apakah anda yakin?')" href="{{ route('petugas.pengaduan.selesai',$element->id) }}" class="btn btn-danger btn-sm btn-icon" title="selesai">
 									<i class="fal fa-check"></i>

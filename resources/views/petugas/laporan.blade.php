@@ -5,7 +5,7 @@
 	<h2>Generate Laporan</h2>
 	<hr>
 	<div class="col-md-5 bg-white rounded border p-5">
-		<form action="{{ route('petugas.laporan.generate') }}" method="GET">
+		<form action="{{ route('petugas.laporan.generate') }}" method="POST">
 			@csrf
 			<div class="form-grup">
 				<div class="row">
@@ -19,26 +19,30 @@
 					</div>
 				</div>
 			</div>
-			<div class="form-group mt-4 custom-control custom-checkbox">
+			<!-- <div class="form-group mt-4 custom-control custom-checkbox">
 				<input type="checkbox" name="with_tanggapan" class="custom-control-input" id="defaultUnchecked">
 				<label class="custom-control-label" for="defaultUnchecked">Dengan Tanggapan</label>
+			</div> -->
+			<div class="form-group mt-4 custom-control custom-checkbox">
+				<input type="checkbox" name="download" class="custom-control-input" id="download">
+				<label class="custom-control-label" for="download">Download File</label>
 			</div>
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="masyarakat">Masyarakat</label>
 				<select name="masyarakat" class="form-control" id="">
 					<option value="">All</option>
 					@foreach ($masyarakat as $element)
-					<option value="{{$value->nik}}">All</option>
+					<option value="{{$element->nik}}">{{$element->nama}}</option>
 					@endforeach
 				</select>
-			</div>
-			<div class="form-group">
+			</div> -->
+			<!-- <div class="form-group">
 				<label for="type_output">Tipe Laporan</label>
 				<select name="type_output" class="form-control" id="">
 					<option value="">Tabel</option>
 					<option value="">Singgel</option>
 				</select>
-			</div>
+			</div> -->
 			<button class="btn btn-success"><i class="fal fa-print"></i></button>
 		</form>
 	</div>

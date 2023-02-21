@@ -27,7 +27,8 @@
                 <div class="border bg-info mb-3 rounded">
                     <div style="font-size: 12px;" class="bg-info rounded shadow col-md-5 text-white p-2">
                         <i class="fal fa-user"></i> : {{ $element->petugas->nama_petugas ?? 'admin' }}
-                        ({{ $element->petugas->level ?? 'administrator' }}) - <i
+                        ({{ $element->petugas->level ?? 'administrator' }})
+                        - <i
                             class="fal fa-calendar"></i>&nbsp;{{ (new \Carbon\Carbon($element->tanggal_tanggapan))->isoFormat('dddd, D MMMM Y') }}
                         @if (auth()->guard('petugas')->user()->id == $element->id_petugas)
                             :: <a onclick="return confirm('Apakah anda yakin?')" class="bg-danger p-1 rounded-circle"

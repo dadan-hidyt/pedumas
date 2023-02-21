@@ -42,7 +42,7 @@
 					$i++;
 					@endphp
 					<tr>
-						<td>{{ $i; }}</td>
+						<td>{{ $i }}</td>
 						<td>{{ $element->judul_pengaduan; }}</td>
 						<td>{{ (new \Carbon\Carbon($element->tgl_pengaduan))->isoFormat('dddd, D MMMM Y') }}</td>
 						<td>

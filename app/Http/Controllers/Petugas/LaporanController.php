@@ -8,31 +8,27 @@ use App\Services\LaporanService;
 use App\Repository\LaporanRepository;
 use App\Models\Pengaduan;
 use App\Models\Masyarakat;
+use PDF;
 class LaporanController extends Controller
 {
-    public function index(){
-        $title = "Laporan - ";
+    public function index()   {
+        $title = "Buat Laporan ";
         $masyarakat = Masyarakat::get();
-        return view('petugas.laporan',compact('title'));
+        return view('petugas.laporan',compact('title','masyarakat'));
     }
     public function generate(Request $request,LaporanService $LaporanService,LaporanRepository $laporanRepository){
         $start = $request->start_date;
         $end = $request->end_date;
         $start = $request->start_date;
-        $with_tanggapan = $request->with_tanggapan;
         $masyarakat = $request->masyarakat;
-        //get data by end and start data
-       $pengaduan = Pengaduan::when([$start,$end], function($query,$date){
-            return $query->whereBetween('tgl_pengaduan',$date);
-       })->when($masyarakat,function($query,$masyarakat){
-            return $query->where(['nik'=>$masyarakat]);
-       });
-       
-        dd($pengaduan->get()->toArray());
-
-            //query builder with repository
-        // if ($request->type_output == 'table') {
-        //     $LaporanService->generateTable();
-        // }
+        
+        if($masyarakat){
+            $pf = $LaporanService->reportByMasyarakat();
+        }elseif($start || $end){
+            $pf = $LaporanService->reportAllByDate();
+        }else{
+            $pf = $LaporanService->reportAll();
+        }
+        return $request->download ? $pf->download(date('dmyhisa').'.pdf') : $pf->stream();
     }
 }

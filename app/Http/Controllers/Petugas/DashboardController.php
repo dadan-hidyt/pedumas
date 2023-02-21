@@ -34,10 +34,12 @@ class DashboardController extends Controller
         return [
             'pengaduan' => Pengaduan::get()->count(),
             'masyarakat' => Masyarakat::get()->count(),
+            'selesai' => Pengaduan::where('status','selesai')->count(),
+            'proses' => Pengaduan::where('status','prosess')->count(),
         ];
     }
     public function __invoke(){
-        $title = "Dashboard Petufas";
+        $title = "Dashboard Petugas";
         $charts = $this->cartData();
         $count = $this->counting();
         return view("petugas.dashboard",compact('title','charts','count'));

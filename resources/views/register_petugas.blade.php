@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-@livewire('register-petugas')
+    @livewire('register-petugas')
 @endsection

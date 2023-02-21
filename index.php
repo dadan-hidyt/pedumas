@@ -9,6 +9,7 @@ $text_dilarang = [
 	'anjink',
 	'bangsat',
 	'asu',
+	'telaso',
 	'setan'
 ];
 if (preg_match_all($text_dilarang, $text_dilarang, $mats)) {

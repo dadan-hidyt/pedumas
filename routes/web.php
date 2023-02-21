@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     RegisterController,
     LoginController,
+    ListPengaduan,
     RegisterPetugasController,
 };
 use App\Http\Controllers\Masyarakat\{
@@ -52,7 +53,7 @@ Route::name('petugas')->prefix('petugas')->group(function(){
         Route::middleware('petugas_role')->group(function(){
             Route::controller(LaporanController::class)->name('.laporan')->group(function(){
                 Route::get('laporan','index')->name('.index');
-                Route::get('generate','generate')->name('.generate');
+                Route::post('generate','generate')->name('.generate');
             });
             Route::controller(ManageMasyarakatController::class)->name('.manage-masyarakat')->group(function(){
                 Route::get('manage_masyarakat','index')->name('.index');
